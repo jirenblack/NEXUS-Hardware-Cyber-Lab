@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS Lab | Custom Gaming PCs, Hardware High-End & Modding</title>
+    <title>NEXUS Lab | Tienda Hardware High-End, Custom Rigs & Service</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +31,8 @@
                             neon: '#00FFA3',
                             neonHover: '#00E08F',
                             cyan: '#00D8F6',
-                            darkText: '#8E9AAF'
+                            darkText: '#8E9AAF',
+                            priceList: '#FF9E00'
                         }
                     },
                     fontFamily: {
@@ -44,19 +45,10 @@
     </script>
 
     <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #080A0F;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1A2130;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00FFA3;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #080A0F; }
+        ::-webkit-scrollbar-thumb { background: #1A2130; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00FFA3; }
 
         .neon-glow-text {
             background: linear-gradient(135deg, #FFFFFF 40%, #00FFA3 100%);
@@ -77,7 +69,7 @@
         }
 
         .glass-card {
-            background: rgba(15, 19, 28, 0.75);
+            background: rgba(15, 19, 28, 0.85);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(0, 255, 163, 0.12);
         }
@@ -87,128 +79,132 @@
         }
 
         .glass-nav {
-            background: rgba(8, 10, 15, 0.88);
+            background: rgba(8, 10, 15, 0.92);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
 <body class="bg-nexus-bg text-gray-200 font-body antialiased overflow-x-hidden selection:bg-nexus-neon selection:text-black">
 
+    <!-- BARRA SUPERIOR DE PROMOCIÓN COMPRA GAMER STYLE -->
+    <div class="bg-gradient-to-r from-nexus-neon/20 via-nexus-cyan/20 to-nexus-neon/20 border-b border-nexus-neon/30 text-[11px] py-1.5 px-4 text-center font-title font-semibold text-white flex justify-center items-center gap-4">
+        <span><i class="fas fa-bolt text-nexus-neon mr-1"></i> <strong> PRECIO ESPECIAL:</strong> Descuento abonando en Efectivo o Transferencia</span>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline"><i class="fas fa-truck-fast text-nexus-cyan mr-1"></i> Envíos a todo el país & Retiro en Taller Campana</span>
+    </div>
+
     <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full z-40 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+            
             <!-- Logo -->
-            <a href="#home" class="flex items-center gap-2 group">
-                <div class="w-9 h-9 rounded-lg bg-nexus-neon/10 border border-nexus-neon/40 flex items-center justify-center font-title font-bold text-nexus-neon text-xl group-hover:bg-nexus-neon group-hover:text-black transition-all">
+            <a href="#home" class="flex items-center gap-2 shrink-0">
+                <div class="w-9 h-9 rounded-lg bg-nexus-neon/10 border border-nexus-neon/40 flex items-center justify-center font-title font-bold text-nexus-neon text-xl">
                     <i class="fas fa-microchip"></i>
                 </div>
-                <span class="font-title font-bold text-2xl tracking-wider text-white">NEXUS<span class="text-nexus-neon">.LAB</span></span>
+                <span class="font-title font-bold text-xl sm:text-2xl tracking-wider text-white">NEXUS<span class="text-nexus-neon">.LAB</span></span>
             </a>
 
-            <!-- Menu Desktop -->
-            <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-gray-300">
-                <a href="#home" class="hover:text-nexus-neon transition-colors">Inicio</a>
-                <a href="#servicios" class="hover:text-nexus-neon transition-colors">Especialidades</a>
-                <a href="#galeria" class="hover:text-nexus-neon transition-colors">Catálogo & Proyectos</a>
-                <a href="#armador" class="hover:text-nexus-neon transition-colors">Armador Live</a>
-                <a href="#proceso" class="hover:text-nexus-neon transition-colors">Garantía & Testeo</a>
-                <a href="#contacto" class="hover:text-nexus-neon transition-colors">Contacto</a>
+            <!-- BUSCADOR DE TIENDA LIVED SEARCH -->
+            <div class="hidden md:flex items-center flex-1 max-w-md mx-4 relative">
+                <input type="text" id="store-search-input" onkeyup="searchProducts()" placeholder="Buscar placa de video, i5, RTX 4060, SSD..." class="w-full bg-nexus-bg border border-nexus-border text-xs text-white rounded-xl pl-10 pr-4 py-2.5 focus:border-nexus-neon focus:outline-none transition">
+                <i class="fas fa-search text-gray-400 text-xs absolute left-3.5"></i>
             </div>
 
-            <!-- CTA Right -->
-            <div class="hidden lg:flex items-center gap-4">
-                <a href="https://wa.me/5493489000000?text=Hola%20NEXUS!%20Quiero%20consultar%20por%20un%20presupuesto%20de%20hardware" target="_blank" class="btn-neon font-title font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-2">
-                    <i class="fab fa-whatsapp text-sm"></i> Taller Directo
-                </a>
-            </div>
+            <!-- Navegación & Carrito -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <div class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-gray-300">
+                    <a href="#tienda" class="hover:text-nexus-neon transition-colors">Catálogo</a>
+                    <a href="#armador" class="hover:text-nexus-neon transition-colors">Armá tu PC</a>
+                    <a href="#servicios" class="hover:text-nexus-neon transition-colors">Service & Modding</a>
+                    <a href="#contacto" class="hover:text-nexus-neon transition-colors">Contacto</a>
+                </div>
 
-            <!-- Botón Mobile Menu -->
-            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-white focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
+                <!-- Botón Carrito con Contador -->
+                <button onclick="toggleCartDrawer()" class="relative bg-nexus-neon/10 border border-nexus-neon/40 hover:bg-nexus-neon hover:text-black text-nexus-neon px-3.5 py-2 rounded-xl transition flex items-center gap-2 font-title font-bold text-xs">
+                    <i class="fas fa-cart-shopping text-sm"></i>
+                    <span class="hidden sm:inline">Mi Carrito</span>
+                    <span id="cart-badge-count" class="bg-nexus-neon text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </button>
+            </div>
         </div>
 
-        <!-- Mobile Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-nexus-card border-b border-nexus-border px-6 py-6 space-y-4 text-sm font-semibold">
-            <a href="#home" class="block text-gray-300 hover:text-nexus-neon">Inicio</a>
-            <a href="#servicios" class="block text-gray-300 hover:text-nexus-neon">Especialidades</a>
-            <a href="#galeria" class="block text-gray-300 hover:text-nexus-neon">Catálogo & Proyectos</a>
-            <a href="#armador" class="block text-gray-300 hover:text-nexus-neon">Armador Live</a>
-            <a href="#proceso" class="block text-gray-300 hover:text-nexus-neon">Garantía & Testeo</a>
-            <a href="#contacto" class="block text-gray-300 hover:text-nexus-neon">Contacto</a>
-            <a href="https://wa.me/5493489000000" target="_blank" class="w-full btn-neon font-title font-bold py-3 rounded-xl text-center block text-xs uppercase">
-                WhatsApp Taller
-            </a>
+        <!-- Buscador en Mobile -->
+        <div class="md:hidden px-4 pb-3">
+            <div class="relative">
+                <input type="text" id="store-search-input-mobile" onkeyup="searchProductsMobile()" placeholder="Buscar en catálogo..." class="w-full bg-nexus-bg border border-nexus-border text-xs text-white rounded-xl pl-9 pr-3 py-2 focus:border-nexus-neon focus:outline-none">
+                <i class="fas fa-search text-gray-400 text-xs absolute left-3 top-2.5"></i>
+            </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-nexus-neon/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <section id="home" class="relative min-h-[70vh] flex items-center justify-center pt-12 pb-16 overflow-hidden">
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-nexus-neon/10 rounded-full blur-[160px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             
-            <div class="lg:col-span-7 space-y-8" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 bg-nexus-neon/10 border border-nexus-neon/30 px-4 py-2 rounded-full">
+            <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 bg-nexus-neon/10 border border-nexus-neon/30 px-3.5 py-1.5 rounded-full">
                     <span class="w-2 h-2 rounded-full bg-nexus-neon animate-ping"></span>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-nexus-neon">Laboratorio Técnico & Modding de Precisión</span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-nexus-neon">Hardware de Precisión & Custom Rigs</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-title font-bold leading-tight text-white">
-                    Ingeniería de Hardware <br>
-                    <span class="neon-glow-text">& Rig Custom.</span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-title font-bold leading-tight text-white">
+                    Catálogo de Hardware <br>
+                    <span class="neon-glow-text">& Armado Custom Gamer.</span>
                 </h1>
 
-                <p class="text-base sm:text-lg text-nexus-darkText max-w-xl leading-relaxed">
-                    Diseño y ensamblado de PCs de alto rendimiento, sistemas con refrigeración líquida personalizada, mantenimiento térmico avanzado y restauración profesional de hardware en Campana.
+                <p class="text-xs sm:text-base text-nexus-darkText max-w-xl leading-relaxed">
+                    Especialistas en componentes de alta gama, armado de computadoras a medida, refrigeración líquida custom y mantenimiento térmico en Campana.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <a href="#armador" class="btn-neon font-title font-bold px-8 py-4 rounded-xl text-xs uppercase tracking-wider text-center flex items-center justify-center gap-3">
-                        <i class="fas fa-sliders text-base"></i> Armar Mi Presupuesto
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#tienda" class="btn-neon font-title font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fas fa-store"></i> Ver Productos Disponibles
                     </a>
-                    <a href="#galeria" class="glass-card text-white hover:text-nexus-neon font-title font-semibold px-8 py-4 rounded-xl text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-3">
-                        <i class="fas fa-desktop"></i> Ver Productos & Rigs
+                    <a href="#armador" class="glass-card text-white hover:text-nexus-neon font-title font-semibold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition flex items-center gap-2">
+                        <i class="fas fa-sliders"></i> Configurador "Armá tu PC"
                     </a>
                 </div>
 
-                <!-- Stats Grid -->
-                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-nexus-border">
-                    <div>
-                        <p class="text-3xl font-title font-bold text-white counter" data-target="480">0</p>
-                        <p class="text-xs text-nexus-darkText uppercase tracking-wider mt-1">Sistemas Armados</p>
+                <!-- Métodos de pago badges -->
+                <div class="pt-6 border-t border-nexus-border flex flex-wrap items-center gap-6 text-xs text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-money-bill-wave text-nexus-neon text-base"></i>
+                        <span><strong>Efectivo / Transferencia:</strong> Precio Especial</span>
                     </div>
-                    <div>
-                        <p class="text-3xl font-title font-bold text-nexus-neon counter" data-target="100">0</p>
-                        <p class="text-xs text-nexus-darkText uppercase tracking-wider mt-1">% Testeo de Estrés</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-title font-bold text-white counter" data-target="24">0</p>
-                        <p class="text-xs text-nexus-darkText uppercase tracking-wider mt-1">Meses de Garantía</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-credit-card text-nexus-cyan text-base"></i>
+                        <span><strong>Tarjetas:</strong> Cuotas Fijas</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Image Preview con Modal -->
+            <!-- Banner Destacado / Rig Top -->
             <div class="lg:col-span-5 relative" data-aos="fade-left">
-                <div onclick="openProductModal('p1')" class="relative z-10 rounded-2xl overflow-hidden border border-nexus-border shadow-2xl group cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Estación de Trabajo NEXUS Titan" class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-nexus-bg via-transparent to-transparent"></div>
-                    
-                    <!-- Overlay de interacción al pasar el mouse -->
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="btn-neon font-title font-bold px-6 py-3 rounded-xl text-xs uppercase flex items-center gap-2">
-                            <i class="fas fa-eye text-sm"></i> Ver Detalles del Rig
-                        </span>
+                <div onclick="openProductModal('p1')" class="glass-card rounded-2xl p-5 border border-nexus-border hover:border-nexus-neon transition cursor-pointer group">
+                    <div class="relative rounded-xl overflow-hidden mb-4 h-64">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="NEXUS Custom Rig" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 right-3 bg-nexus-neon text-black font-title font-bold text-[10px] uppercase px-3 py-1 rounded-full">Destacado del Mes</span>
                     </div>
-
-                    <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-nexus-neon font-title font-bold uppercase tracking-wider"><i class="fas fa-bolt"></i> Sistema Destacado (Tocá para ver)</p>
-                            <p class="text-white font-title font-bold text-sm sm:text-base">NEXUS Titan - RTX 4090 / i9 14900KS</p>
+                    <div>
+                        <p class="text-[11px] text-nexus-neon font-title font-bold uppercase"><i class="fas fa-fire"></i> Sistema Ensamblado Listo</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">NEXUS Spectre RTX 4080 Super</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Intel i7 14700K | 32GB DDR5 | Watercooling Custom Loop</p>
+                        
+                        <!-- Doble Precio -->
+                        <div class="mt-4 pt-3 border-t border-nexus-border flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase text-nexus-neon font-title font-bold block">PRECIO ESPECIAL (Contado)</span>
+                                <span class="text-xl font-title font-bold text-nexus-neon">$2.450.000 ARS</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] uppercase text-nexus-priceList font-title font-bold block">PRECIO DE LISTA</span>
+                                <span class="text-xs font-title font-semibold text-gray-300">$2.880.000 ARS</span>
+                            </div>
                         </div>
-                        <span class="bg-nexus-neon/20 text-nexus-neon text-xs font-bold px-3 py-1.5 rounded-lg border border-nexus-neon/40">Custom Loop</span>
                     </div>
                 </div>
             </div>
@@ -216,293 +212,151 @@
         </div>
     </section>
 
-    <!-- ESPECIALIDADES -->
-    <section id="servicios" class="py-24 bg-nexus-card relative border-y border-nexus-border">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Servicios de Laboratorio</span>
-                <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Soluciones de Ingeniería de Hardware</h2>
-            </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3 class="text-xl font-title font-bold text-white mb-2">Custom Watercooling</h3>
-                        <p class="text-nexus-darkText text-xs leading-relaxed mb-6">
-                            Diseño de tubos rígidos de acrílico/PETG, bloques de agua de cobre para CPU/GPU y radiadores de alto flujo térmico.
-                        </p>
-                    </div>
-                    <span class="text-xs text-nexus-neon font-title font-semibold uppercase tracking-wider flex items-center gap-1">
-                        Cero Sobrecalentamiento <i class="fas fa-chevron-right text-[10px]"></i>
-                    </span>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
-                            <i class="fas fa-fan"></i>
-                        </div>
-                        <h3 class="text-xl font-title font-bold text-white mb-2">Mantenimiento Térmico</h3>
-                        <p class="text-nexus-darkText text-xs leading-relaxed mb-6">
-                            Reemplazo de pads térmicos de alta conductividad (W/mK), aplicación de Metal Líquido y limpieza por ultrasonido.
-                        </p>
-                    </div>
-                    <span class="text-xs text-nexus-neon font-title font-semibold uppercase tracking-wider flex items-center gap-1">
-                        Reducción de hasta 25°C <i class="fas fa-chevron-right text-[10px]"></i>
-                    </span>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
-                            <i class="fas fa-screwdriver-wrench"></i>
-                        </div>
-                        <h3 class="text-xl font-title font-bold text-white mb-2">Modding & Refurbish</h3>
-                        <p class="text-nexus-darkText text-xs leading-relaxed mb-6">
-                            Restauración estética y electrónica de consolas (PS5, Xbox, retro), armado de cables custom sleeving y pintura electrostática.
-                        </p>
-                    </div>
-                    <span class="text-xs text-nexus-neon font-title font-semibold uppercase tracking-wider flex items-center gap-1">
-                        Restauración Total <i class="fas fa-chevron-right text-[10px]"></i>
-                    </span>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="300">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
-                            <i class="fas fa-gauge-high"></i>
-                        </div>
-                        <h3 class="text-xl font-title font-bold text-white mb-2">Overclocking & BIOS</h3>
-                        <p class="text-nexus-darkText text-xs leading-relaxed mb-6">
-                            Ajuste de perfiles XMP/EXPO, undervolting para baja temperatura y optimización fina de latencias en memorias RAM DDR5.
-                        </p>
-                    </div>
-                    <span class="text-xs text-nexus-neon font-title font-semibold uppercase tracking-wider flex items-center gap-1">
-                        FPS Máximos Estables <i class="fas fa-chevron-right text-[10px]"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATÁLOGO & GALERÍA INTERACTIVA (CLICK EN CUALQUIER PRODUCTO ABRE EL MODAL) -->
-    <section id="galeria" class="py-28 bg-nexus-bg">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- SECCIÓN TIENDA / CATÁLOGO COMPRA GAMER STYLE -->
+    <section id="tienda" class="py-20 bg-nexus-card border-y border-nexus-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6" data-aos="fade-up">
                 <div>
-                    <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Catálogo Interactivo de Productos</span>
-                    <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Muestras & Equipos Disponibles</h2>
-                    <p class="text-nexus-darkText text-xs sm:text-sm mt-2">Hacé clic en cualquier producto o foto para ver sus especificaciones completas y cotización.</p>
+                    <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon"><i class="fas fa-boxes-stacked"></i> Catálogo Completo</span>
+                    <h2 class="text-2xl sm:text-4xl font-title font-bold text-white mt-1">Componentes & Equipos Gamer</h2>
+                    <p class="text-nexus-darkText text-xs sm:text-sm mt-1">Elegí tus componentes con garantía directa y prueba de estrés antes de la entrega.</p>
                 </div>
 
-                <!-- Botones de Filtrado JS -->
-                <div class="flex flex-wrap gap-2 glass-card p-1.5 rounded-xl">
-                    <button onclick="filterProjects('all')" class="project-btn active text-xs font-title font-bold px-4 py-2 rounded-lg transition bg-nexus-neon text-black" data-filter="all">Todos</button>
-                    <button onclick="filterProjects('rigs')" class="project-btn text-xs font-title font-bold px-4 py-2 rounded-lg transition text-gray-400 hover:text-white" data-filter="rigs">PCs Custom</button>
-                    <button onclick="filterProjects('componentes')" class="project-btn text-xs font-title font-bold px-4 py-2 rounded-lg transition text-gray-400 hover:text-white" data-filter="componentes">Componentes & GPU</button>
-                    <button onclick="filterProjects('taller')" class="project-btn text-xs font-title font-bold px-4 py-2 rounded-lg transition text-gray-400 hover:text-white" data-filter="taller">Taller Técnico</button>
+                <!-- Filtros por Categoría Compra Gamer Style -->
+                <div class="flex flex-wrap gap-2 glass-card p-1.5 rounded-xl text-xs font-title font-bold">
+                    <button onclick="filterCategory('all')" class="cat-btn active px-3.5 py-2 rounded-lg bg-nexus-neon text-black transition" data-cat="all">Todos</button>
+                    <button onclick="filterCategory('cpu')" class="cat-btn px-3.5 py-2 rounded-lg text-gray-400 hover:text-white transition" data-cat="cpu">Procesadores</button>
+                    <button onclick="filterCategory('gpu')" class="cat-btn px-3.5 py-2 rounded-lg text-gray-400 hover:text-white transition" data-cat="gpu">Placas de Video</button>
+                    <button onclick="filterCategory('mother')" class="cat-btn px-3.5 py-2 rounded-lg text-gray-400 hover:text-white transition" data-cat="mother">Motherboards</button>
+                    <button onclick="filterCategory('ram')" class="cat-btn px-3.5 py-2 rounded-lg text-gray-400 hover:text-white transition" data-cat="ram">RAM / SSD</button>
+                    <button onclick="filterCategory('rigs')" class="cat-btn px-3.5 py-2 rounded-lg text-gray-400 hover:text-white transition" data-cat="rigs">PCs Armadas</button>
                 </div>
             </div>
 
-            <!-- Grid de Galería -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                
-                <!-- Card 1: PC Custom RGB Watercooled -->
-                <div onclick="openProductModal('p1')" class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="Rig Custom Watercooled RGB" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-neon text-xs font-bold px-3 py-1 rounded-full border border-nexus-neon/30">Custom Rig</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">NEXUS Spectre RGB Loop</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Refrigeración líquida personalizada con tubos rígidos PETG e iluminación ARGB.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">$2.450.000 ARS</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Motherboard y Procesador -->
-                <div onclick="openProductModal('p2')" class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80" alt="Procesador en Socket de Placa Madre" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-cyan text-xs font-bold px-3 py-1 rounded-full border border-nexus-cyan/30">Componente</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Kit Ensamble Z790 + i9 14900K</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Combo de motherboard de alta gama y procesador optimizado por nuestro taller.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">$1.280.000 ARS</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Placa de Video GPU High End -->
-                <div onclick="openProductModal('p3')" class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80" alt="Placa de Video GPU High End" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-cyan text-xs font-bold px-3 py-1 rounded-full border border-nexus-cyan/30">GPU Extreme</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Service Mantenimiento GPU RTX 4090</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Repaste térmico con Metal Líquido y thermal pads de 15 W/mK.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">$120.000 ARS</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Taller de Electrónica y Placa de Circuito -->
-                <div onclick="openProductModal('p4')" class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=800&q=80" alt="Banco de Trabajo Técnico y Micro-soldadura" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-yellow-400 text-xs font-bold px-3 py-1 rounded-full border border-yellow-400/30">Taller</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Reparación Electrónica SMD</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Diagnóstico por osciloscopio y cambio de componentes SMD dañados.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">Presupuesto Sin Cargo</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5: Setup Completo Escritorio -->
-                <div onclick="openProductModal('p5')" class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1616588589676-63b3bd49651c?auto=format&fit=crop&w=800&q=80" alt="Escritorio Setup Dual Monitor Workstation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-neon text-xs font-bold px-3 py-1 rounded-full border border-nexus-neon/30">Workstation</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Estación de Trabajo Creator 4K</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Equipo armado para renderizado 3D, edición 4K y streaming profesional.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">$3.900.000 ARS</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Consola & Joystick Hardware -->
-                <div onclick="openProductModal('p6')" class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" alt="Consola y Joystick Hardware" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-yellow-400 text-xs font-bold px-3 py-1 rounded-full border border-yellow-400/30">Modding</span>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
-                                <i class="fas fa-search-plus"></i> Ver Producto
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Refurbish Consolas & Análogos Anti-Drift</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Instalación de joysticks con sensores magnéticos Hall Effect para cero drift.</p>
-                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
-                            <span class="text-nexus-neon font-title font-bold text-sm">$65.000 ARS</span>
-                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- GRID DE PRODUCTOS DE LA TIENDA -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+                <!-- Se renderiza dinámicamente desde JS -->
             </div>
+
         </div>
     </section>
 
-    <!-- ARMADOR INTERACTIVO -->
-    <section id="armador" class="py-28 bg-nexus-card border-y border-nexus-border relative">
-        <div class="max-w-5xl mx-auto px-6">
+
+    <!-- SECCIÓN CONFIGURADOR "ARMÁ TU PC" ESTILO COMPRA GAMER -->
+    <section id="armador" class="py-24 bg-nexus-bg relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12" data-aos="fade-up">
-                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Herramienta Interactiva</span>
-                <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Simulá el Presupuesto de tu PC</h2>
-                <p class="text-nexus-darkText mt-3 text-xs sm:text-sm max-w-xl mx-auto">Configurá las especificaciones base para recibir una cotización estimada al instante con mano de obra y garantía incluida.</p>
+                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon"><i class="fas fa-screwdriver-wrench mr-1"></i> Herramienta Interactiva</span>
+                <h2 class="text-3xl sm:text-4xl font-title font-bold text-white mt-1">Armá tu PC Personalizada</h2>
+                <p class="text-nexus-darkText text-xs sm:text-sm mt-2 max-w-xl mx-auto">Seleccioná los componentes uno a uno para calcular el presupuesto final de tu sistema con armado profesional y testeo incluido.</p>
             </div>
 
-            <div class="glass-card p-8 sm:p-10 rounded-3xl" data-aos="zoom-in">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="glass-card p-6 sm:p-8 rounded-3xl" data-aos="zoom-in">
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
                     
-                    <div class="space-y-6">
+                    <!-- Selectores de Componentes -->
+                    <div class="lg:col-span-7 space-y-4">
+                        
+                        <!-- Procesador -->
                         <div>
-                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-2">Gama / Uso del Sistema</label>
-                            <select id="pc-tier" onchange="calculatePcBudget()" class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3.5 focus:border-nexus-neon focus:outline-none text-xs sm:text-sm font-body">
-                                <option value="650000">Gama Entrada (Gaming 1080p Competitive) - ~$650.000 ARS Base</option>
-                                <option value="1350000">Gama Media/Alta (Gaming 2K & Streaming) - ~$1.350.000 ARS Base</option>
-                                <option value="2800000">Gama Ultra Extreme (Gaming 4K & Workstation IA) - ~$2.800.000 ARS Base</option>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">1. Procesador (CPU)</label>
+                            <select id="builder-cpu" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Procesador --</option>
+                                <option value="210000" data-price-list="245000" data-name="Intel Core i5 13400F 10-Cores">Intel Core i5 13400F - $210.000 (Efectivo)</option>
+                                <option value="295000" data-price-list="340000" data-name="AMD Ryzen 5 7600X AM5">AMD Ryzen 5 7600X - $295.000 (Efectivo)</option>
+                                <option value="480000" data-price-list="550000" data-name="Intel Core i7 14700K 20-Cores">Intel Core i7 14700K - $480.000 (Efectivo)</option>
+                                <option value="620000" data-price-list="710000" data-name="AMD Ryzen 7 7800X3D Gamer">AMD Ryzen 7 7800X3D - $620.000 (Efectivo)</option>
                             </select>
                         </div>
 
+                        <!-- Motherboard -->
                         <div>
-                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-2">Adicionales de Laboratorio</label>
-                            <div class="space-y-3">
-                                <label class="flex items-center gap-3 text-xs sm:text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" id="opt-sleeving" onchange="calculatePcBudget()" checked class="w-4 h-4 accent-nexus-neon">
-                                    Cables Mod Custom Sleeving (+ $45.000 ARS)
-                                </label>
-                                <label class="flex items-center gap-3 text-xs sm:text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" id="opt-liquid" onchange="calculatePcBudget()" class="w-4 h-4 accent-nexus-neon">
-                                    Sistema de Refrigeración Líquida AIO (+ $120.000 ARS)
-                                </label>
-                                <label class="flex items-center gap-3 text-xs sm:text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" id="opt-optimization" onchange="calculatePcBudget()" checked class="w-4 h-4 accent-nexus-neon">
-                                    Optimización de BIOS, Windows & Overclocking (+ $35.000 ARS)
-                                </label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-2">Modalidad de Armado</label>
-                            <select id="pc-delivery" onchange="calculatePcBudget()" class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3.5 focus:border-nexus-neon focus:outline-none text-xs sm:text-sm font-body">
-                                <option value="1">Retiro en Taller (Campana) - Incluido</option>
-                                <option value="1.03">Envío Asegurado con Escolta/Embalaje Especial (+3%)</option>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">2. Placa Madre (Motherboard)</label>
+                            <select id="builder-mother" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Motherboard --</option>
+                                <option value="125000" data-price-list="145000" data-name="ASUS Prime B760M-A Wi-Fi DDR5">ASUS Prime B760M-A DDR5 - $125.000 (Efectivo)</option>
+                                <option value="185000" data-price-list="215000" data-name="MSI B650 Gaming Plus WiFi AM5">MSI B650 Gaming Plus AM5 - $185.000 (Efectivo)</option>
+                                <option value="290000" data-price-list="335000" data-name="ASUS ROG Strix Z790-F Gaming Wi-Fi">ASUS ROG Strix Z790-F - $290.000 (Efectivo)</option>
                             </select>
                         </div>
+
+                        <!-- RAM -->
+                        <div>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">3. Memoria RAM</label>
+                            <select id="builder-ram" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Memoria RAM --</option>
+                                <option value="65000" data-price-list="76000" data-name="16GB (2x8GB) DDR4 3200MHz Corsair">16GB (2x8GB) DDR4 3200MHz - $65.000 (Efectivo)</option>
+                                <option value="128000" data-price-list="150000" data-name="32GB (2x16GB) DDR5 6000MHz RGB Fury">32GB (2x16GB) DDR5 6000MHz RGB - $128.000 (Efectivo)</option>
+                                <option value="240000" data-price-list="280000" data-name="64GB (2x32GB) DDR5 6000MHz Corsair Vengeance">64GB (2x32GB) DDR5 6000MHz - $240.000 (Efectivo)</option>
+                            </select>
+                        </div>
+
+                        <!-- Placa de Video -->
+                        <div>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">4. Placa de Video (GPU)</label>
+                            <select id="builder-gpu" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Placa de Video --</option>
+                                <option value="390000" data-price-list="450000" data-name="Nvidia GeForce RTX 4060 8GB OC">Nvidia RTX 4060 8GB OC - $390.000 (Efectivo)</option>
+                                <option value="680000" data-price-list="790000" data-name="Nvidia GeForce RTX 4070 Super 12GB">Nvidia RTX 4070 Super 12GB - $680.000 (Efectivo)</option>
+                                <option value="1290000" data-price-list="1490000" data-name="Nvidia GeForce RTX 4080 Super 16GB">Nvidia RTX 4080 Super 16GB - $1.290.000 (Efectivo)</option>
+                            </select>
+                        </div>
+
+                        <!-- Almacenamiento -->
+                        <div>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">5. Almacenamiento SSD M.2 NVMe</label>
+                            <select id="builder-ssd" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Disco SSD --</option>
+                                <option value="58000" data-price-list="68000" data-name="SSD M.2 1TB Kingston NV2 PCIe 4.0">SSD M.2 1TB PCIe 4.0 - $58.000 (Efectivo)</option>
+                                <option value="115000" data-price-list="135000" data-name="SSD M.2 2TB Kingston Fury Renegade 7300MB/s">SSD M.2 2TB Ultra Speed 7300MB/s - $115.000 (Efectivo)</option>
+                            </select>
+                        </div>
+
+                        <!-- Fuente de Alimentación -->
+                        <div>
+                            <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">6. Fuente de Alimentación (PSU)</label>
+                            <select id="builder-psu" onchange="updateBuilderTotal()" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                                <option value="0" data-price-list="0">-- Seleccionar Fuente --</option>
+                                <option value="78000" data-price-list="90000" data-name="Fuente 650W Corsair 80 Plus Bronze">Fuente 650W 80+ Bronze - $78.000 (Efectivo)</option>
+                                <option value="135000" data-price-list="158000" data-name="Fuente 850W Gigabyte 80 Plus Gold Modular">Fuente 850W 80+ Gold Modular - $135.000 (Efectivo)</option>
+                            </select>
+                        </div>
+
                     </div>
 
-                    <div class="bg-nexus-bg p-6 sm:p-8 rounded-2xl border border-nexus-border flex flex-col justify-between h-full space-y-6">
+                    <!-- Resumen del Presupuesto Armado -->
+                    <div class="lg:col-span-5 bg-nexus-bg p-6 rounded-2xl border border-nexus-border flex flex-col justify-between h-full space-y-6">
                         <div>
-                            <span class="text-xs uppercase text-nexus-darkText font-title font-bold tracking-widest">Presupuesto Estimado</span>
-                            <div class="mt-4">
-                                <p class="text-xs text-gray-400">Total Aproximado Componentes + Armado:</p>
-                                <p class="text-3xl sm:text-4xl font-title font-bold neon-glow-text mt-1" id="pc-total-price">$730.000 ARS</p>
+                            <span class="text-xs uppercase text-nexus-neon font-title font-bold tracking-widest block mb-2"><i class="fas fa-calculator"></i> Cotización en Vivo</span>
+                            
+                            <div class="space-y-3 py-4 border-y border-nexus-border text-xs">
+                                <div>
+                                    <span class="text-nexus-darkText block">PRECIO ESPECIAL (Efectivo / Transferencia):</span>
+                                    <span class="text-2xl font-title font-bold text-nexus-neon" id="builder-total-cash">$0 ARS</span>
+                                </div>
+                                <div>
+                                    <span class="text-nexus-darkText block">PRECIO DE LISTA (Tarjetas / Cuotas):</span>
+                                    <span class="text-base font-title font-bold text-nexus-priceList" id="builder-total-list">$0 ARS</span>
+                                </div>
                             </div>
-                            <p class="text-[11px] text-nexus-darkText mt-4 leading-relaxed">*Incluye armado técnico, orden de cables profesional, actualización de BIOS y prueba de estabilidad por 24 horas.</p>
+
+                            <div class="mt-4 text-[11px] text-nexus-darkText space-y-1.5">
+                                <p><i class="fas fa-check text-nexus-neon mr-1"></i> Incluye armado profesional de cables libres.</p>
+                                <p><i class="fas fa-check text-nexus-neon mr-1"></i> Actualización de BIOS & Stress Test 24hs.</p>
+                                <p><i class="fas fa-check text-nexus-neon mr-1"></i> Garantía técnica de laboratorio NEXUS.</p>
+                            </div>
                         </div>
 
-                        <button onclick="sendPcEstimateWhatsApp()" class="w-full btn-neon font-title font-bold py-4 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp text-base"></i> Solicitar Este Armado
-                        </button>
+                        <div class="space-y-3">
+                            <button onclick="addBuilderBuildToCart()" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                                <i class="fas fa-cart-plus"></i> Agregar Armado al Carrito
+                            </button>
+                            <button onclick="sendBuilderToWhatsApp()" class="w-full glass-card hover:bg-emerald-500/20 text-emerald-400 font-title font-bold py-3 rounded-xl text-xs uppercase flex items-center justify-center gap-2 transition">
+                                <i class="fab fa-whatsapp"></i> Consultar Armado por WhatsApp
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -510,100 +364,82 @@
         </div>
     </section>
 
-    <!-- PROCESO -->
-    <section id="proceso" class="py-28 bg-nexus-bg">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Estándares Técnicos</span>
-                <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Nuestro Proceso de Trabajo</h2>
+
+    <!-- ESPECIALIDADES Y SERVICIOS TÉCNICOS -->
+    <section id="servicios" class="py-20 bg-nexus-card border-y border-nexus-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Servicios de Laboratorio</span>
+                <h2 class="text-3xl font-title font-bold text-white mt-1">Ingeniería Térmica & Modding</h2>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up">
-                    <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">01</span>
-                    <h3 class="text-lg font-title font-bold text-white mb-2">1. Diagnóstico</h3>
-                    <p class="text-nexus-darkText text-xs leading-relaxed">Selección de componentes 100% compatibles y verificación de consumo energético de la fuente (PSU).</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
+                    <div class="w-10 h-10 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3 class="text-lg font-title font-bold text-white mb-2">Mantenimiento Térmico</h3>
+                    <p class="text-xs text-nexus-darkText leading-relaxed">Repaste de GPU y CPU con Metal Líquido o thermal pads de 15 W/mK. Reducción de temperaturas hasta -25°C en placas de video.</p>
                 </div>
 
-                <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="100">
-                    <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">02</span>
-                    <h3 class="text-lg font-title font-bold text-white mb-2">2. Ensamble VIP</h3>
-                    <p class="text-nexus-darkText text-xs leading-relaxed">Montaje libre de estática, ruteo invisible de cables y ajuste preciso de torque en disipadores.</p>
+                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-droplet"></i>
+                    </div>
+                    <h3 class="text-lg font-title font-bold text-white mb-2">Custom Watercooling</h3>
+                    <p class="text-xs text-nexus-darkText leading-relaxed">Diseño e instalación de sistemas de refrigeración líquida personalizada en tubo rígido PETG o cobre para máxima disipación.</p>
                 </div>
 
-                <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="200">
-                    <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">03</span>
-                    <h3 class="text-lg font-title font-bold text-white mb-2">3. Stress Test</h3>
-                    <p class="text-nexus-darkText text-xs leading-relaxed">Pruebas continuas en Cinebench, FurMark y MemTest86 para garantizar cero pantalla azul y bajas temperaturas.</p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="300">
-                    <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">04</span>
-                    <h3 class="text-lg font-title font-bold text-white mb-2">4. Entrega Listo</h3>
-                    <p class="text-nexus-darkText text-xs leading-relaxed">Sistema entregado con drivers actualizados, cajas originales de cada componente y garantía escrita por el taller.</p>
+                <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-lg font-title font-bold text-white mb-2">Refurbish Consolas & Modding</h3>
+                    <p class="text-xs text-nexus-darkText leading-relaxed">Instalación de joysticks con sensores electromagnéticos Hall Effect anti-drift en mandos de PS5/Xbox y limpieza por ultrasonido.</p>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- CONTACTO -->
-    <section id="contacto" class="py-28 bg-nexus-card border-t border-nexus-border">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+    <section id="contacto" class="py-20 bg-nexus-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-12 items-center">
             
-            <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
-                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Atención Directa</span>
-                <h2 class="text-3xl sm:text-5xl font-title font-bold text-white">Traé tu Equipo o Consultá tu Próxima PC</h2>
-                <p class="text-nexus-darkText text-xs sm:text-sm leading-relaxed">Recibimos equipos para service, armado desde cero o upgrades en nuestro punto de atención en Campana. Coordiná un turno para atención personalizada.</p>
+            <div class="lg:col-span-6 space-y-4">
+                <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Atención Personalizada</span>
+                <h2 class="text-3xl font-title font-bold text-white">Visitá nuestro Taller Técnico</h2>
+                <p class="text-xs sm:text-sm text-nexus-darkText">Recibimos hardware para diagnóstico, reparaciones electrónicas SMD o armado personalizado en Campana.</p>
 
-                <div class="space-y-4 pt-4 text-xs sm:text-sm text-gray-300">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-nexus-neon/10 border border-nexus-neon/30 flex items-center justify-center text-nexus-neon shrink-0">
-                            <i class="fas fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <p class="font-title font-bold text-white">Ubicación del Taller:</p>
-                            <p class="text-xs text-nexus-darkText">Campana, Buenos Aires, Argentina</p>
-                        </div>
+                <div class="space-y-3 pt-2 text-xs text-gray-300">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-location-dot text-nexus-neon text-base"></i>
+                        <span>Campana, Buenos Aires, Argentina</span>
                     </div>
-
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-nexus-neon/10 border border-nexus-neon/30 flex items-center justify-center text-nexus-neon shrink-0">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <p class="font-title font-bold text-white">Horario de Atención:</p>
-                            <p class="text-xs text-nexus-darkText">Lunes a Sábados: 10:00 a 19:00 hs</p>
-                        </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fab fa-whatsapp text-nexus-neon text-base"></i>
+                        <span>WhatsApp Taller: +54 9 3489 000000</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Formulario de Contacto -->
-            <div class="lg:col-span-6 glass-card p-8 rounded-3xl" data-aos="fade-left">
-                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <!-- Formulario directo -->
+            <div class="lg:col-span-6 glass-card p-6 sm:p-8 rounded-3xl">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-3">
                     <div>
-                        <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">Nombre</label>
-                        <input type="text" required placeholder="Tu nombre completo" class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3 focus:border-nexus-neon focus:outline-none text-xs font-body">
+                        <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">Nombre Completo</label>
+                        <input type="text" required placeholder="Tu nombre" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">Teléfono / WhatsApp</label>
-                        <input type="tel" required placeholder="+54 3489 000000" class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3 focus:border-nexus-neon focus:outline-none text-xs font-body">
+                        <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">WhatsApp de Contacto</label>
+                        <input type="tel" required placeholder="+54 3489 000000" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">Tipo de Trabajo</label>
-                        <select class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3 focus:border-nexus-neon focus:outline-none text-xs font-body">
-                            <option>Armado de PC Gamer desde Cero</option>
-                            <option>Mantenimiento Térmico / Limpieza Profunda</option>
-                            <option>Instalación de Refrigeración Líquida</option>
-                            <option>Restauración / Modding de Consola o Hardware</option>
-                        </select>
+                        <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">Consulta o Detalle de Hardware</label>
+                        <textarea rows="3" placeholder="Contanos qué componentes querés cotizar o reparar..." class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none"></textarea>
                     </div>
-                    <div>
-                        <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-1">Detalles del Equipo</label>
-                        <textarea rows="3" placeholder="Especificaciones actuales o componentes que querés instalar..." class="w-full bg-nexus-bg border border-nexus-border text-white rounded-xl p-3 focus:border-nexus-neon focus:outline-none text-xs font-body"></textarea>
-                    </div>
-                    <button type="submit" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider">
-                        Enviar Consulta al Taller
+                    <button type="submit" class="w-full btn-neon font-title font-bold py-3 rounded-xl text-xs uppercase tracking-wider">
+                        Enviar Consulta a WhatsApp
                     </button>
                 </form>
             </div>
@@ -611,305 +447,510 @@
         </div>
     </section>
 
+
     <!-- FOOTER -->
-    <footer class="py-10 bg-black border-t border-nexus-border text-nexus-darkText text-xs">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
+    <footer class="py-8 bg-black border-t border-nexus-border text-nexus-darkText text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
                 <span class="font-title font-bold text-white text-base">NEXUS<span class="text-nexus-neon">.LAB</span></span>
-                <span>© 2026 NEXUS Cyber Lab. Todos los derechos reservados.</span>
+                <span class="ml-2">© 2026 NEXUS Cyber Lab Campana.</span>
             </div>
-            <div class="flex gap-6 text-sm text-gray-400">
+            <div class="flex gap-4 text-base text-gray-400">
                 <a href="#" class="hover:text-nexus-neon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-nexus-neon"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="hover:text-nexus-neon"><i class="fab fa-discord"></i></a>
-                <a href="#" class="hover:text-nexus-neon"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
 
-    <!-- MODAL / VENTANA FLOTANTE DE DETALLE DE PRODUCTO -->
-    <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
-        
-        <div class="glass-card bg-nexus-card max-w-3xl w-full rounded-3xl overflow-hidden border border-nexus-neon/40 relative shadow-2xl transform transition-all duration-300 scale-95" id="modal-container">
-            
-            <!-- Botón Cerrar (X) -->
-            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white hover:text-nexus-neon flex items-center justify-center border border-white/10 transition">
-                <i class="fas fa-xmark text-lg"></i>
+    <!-- MODAL / VISTA DETALLADA DEL PRODUCTO -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="glass-card bg-nexus-card max-w-2xl w-full rounded-3xl overflow-hidden border border-nexus-neon/40 relative shadow-2xl" id="modal-container">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 text-white hover:text-nexus-neon flex items-center justify-center transition">
+                <i class="fas fa-xmark"></i>
             </button>
 
             <div class="grid md:grid-cols-12 gap-0">
-                <!-- Imagen del Producto -->
-                <div class="md:col-span-6 relative h-64 md:h-full min-h-[280px]">
-                    <img id="modal-img" src="" alt="Producto NEXUS" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-nexus-card via-transparent to-transparent md:bg-gradient-to-r"></div>
-                    <span id="modal-tag" class="absolute top-4 left-4 bg-nexus-neon text-black text-[10px] font-title font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tag</span>
+                <div class="md:col-span-6 relative h-60 md:h-full">
+                    <img id="modal-img" src="" class="w-full h-full object-cover">
                 </div>
-
-                <!-- Info Detallada -->
-                <div class="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                <div class="md:col-span-6 p-6 flex flex-col justify-between space-y-4">
                     <div>
-                        <h3 id="modal-title" class="text-2xl font-title font-bold text-white">Título del Producto</h3>
-                        <p id="modal-desc" class="text-xs text-nexus-darkText mt-2 leading-relaxed">Descripción del producto...</p>
+                        <span id="modal-category" class="bg-nexus-neon/20 text-nexus-neon text-[10px] font-title font-bold px-2.5 py-1 rounded-full uppercase">Categoría</span>
+                        <h3 id="modal-title" class="text-xl font-title font-bold text-white mt-2">Título</h3>
+                        <p id="modal-desc" class="text-xs text-nexus-darkText mt-2 leading-relaxed">Descripción</p>
                         
-                        <!-- Lista de Specs -->
-                        <div class="mt-4 pt-4 border-t border-nexus-border">
-                            <p class="text-xs font-title font-bold uppercase text-nexus-neon tracking-wider mb-2"><i class="fas fa-microchip"></i> Especificaciones Técnicas:</p>
-                            <ul id="modal-specs" class="space-y-1.5 text-xs text-gray-300 font-body">
-                                <!-- Se llena dinámicamente -->
-                            </ul>
+                        <div class="mt-4 pt-3 border-t border-nexus-border space-y-1">
+                            <span class="text-[10px] uppercase text-nexus-neon font-title font-bold block">Precio Especial (Efectivo / Transf):</span>
+                            <p id="modal-price-cash" class="text-2xl font-title font-bold text-nexus-neon">$0 ARS</p>
+                            <span class="text-[10px] uppercase text-nexus-priceList font-title font-bold block mt-1">Precio de Lista (Tarjetas / Cuotas):</span>
+                            <p id="modal-price-list" class="text-sm font-title font-semibold text-gray-300">$0 ARS</p>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-nexus-border flex items-center justify-between gap-4">
-                        <div>
-                            <span class="text-[10px] uppercase text-nexus-darkText font-title font-bold">Precio / Valor Estimado:</span>
-                            <p id="modal-price" class="text-xl sm:text-2xl font-title font-bold text-nexus-neon">$0 ARS</p>
-                        </div>
-                        <a id="modal-wa-btn" href="#" target="_blank" class="btn-neon font-title font-bold px-5 py-3 rounded-xl text-xs uppercase flex items-center gap-2 shrink-0">
-                            <i class="fab fa-whatsapp text-sm"></i> Pedir por WhatsApp
-                        </a>
+                    <div class="pt-3 border-t border-nexus-border flex gap-2">
+                        <button id="modal-add-cart-btn" onclick="" class="w-full btn-neon font-title font-bold py-2.5 rounded-xl text-xs uppercase flex items-center justify-center gap-2">
+                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
 
-    <!-- AOS (Animate On Scroll) JS -->
+    <!-- PANEL LATERAL / DRAWER DEL CARRITO DE COMPRAS COMPRA GAMER STYLE -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 hidden transition-all duration-300">
+        <!-- Overlay oscuro -->
+        <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+        <!-- Contenido Lateral -->
+        <div class="absolute top-0 right-0 h-full w-full max-w-md bg-nexus-card border-l border-nexus-border shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-nexus-border">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-cart-shopping text-nexus-neon text-lg"></i>
+                        <h3 class="font-title font-bold text-lg text-white">Tu Carrito de Compras</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white text-lg">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Lista de Ítems en Carrito -->
+                <div id="cart-items-container" class="py-4 space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+
+            <!-- Total y Checkout -->
+            <div class="pt-4 border-t border-nexus-border space-y-4">
+                <div class="space-y-1 text-xs">
+                    <div class="flex justify-between items-center text-gray-300">
+                        <span>Total Especial (Efectivo/Transf):</span>
+                        <span id="cart-total-cash" class="text-xl font-title font-bold text-nexus-neon">$0 ARS</span>
+                    </div>
+                    <div class="flex justify-between items-center text-gray-400">
+                        <span>Total Lista (Tarjetas/Cuotas):</span>
+                        <span id="cart-total-list" class="text-xs font-title font-bold text-nexus-priceList">$0 ARS</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <button onclick="checkoutWhatsApp()" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-base"></i> Finalizar Pedido por WhatsApp
+                    </button>
+                    <button onclick="clearCart()" class="w-full text-center text-gray-500 hover:text-red-400 text-[11px] font-title uppercase py-1">
+                        Vaciar Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
+
+    <!-- SCRIPT PRINCIPAL E-COMMERCE -->
     <script>
-        // Inicializar Librería AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        AOS.init({ duration: 700, once: true });
 
-        // Toggle Menu Mobile
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // BASE DE DATOS DE PRODUCTOS Y TRABAJOS DEL TALLER
-        const productsData = {
-            'p1': {
-                title: 'NEXUS Spectre RGB Custom Loop',
-                tag: 'Rig Custom PC',
-                img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Computadora ensamblada a mano con circuito cerrado de agua (Watercooling PETG), fittings de presión de bronce y líquido refrigerante UV.',
-                specs: [
-                    '<strong>GPU:</strong> Nvidia RTX 4080 Super 16GB OC',
-                    '<strong>Procesador:</strong> Intel Core i7 14700K 20 Núcleos',
-                    '<strong>RAM:</strong> 32GB DDR5 6000MHz RGB Corsair',
-                    '<strong>Watercooling:</strong> Bloque Ekwb + Tubos Rígidos 16mm',
-                    '<strong>Fuente:</strong> 850W 80+ Gold Mod'
-                ],
-                price: '$2.450.000 ARS',
-                waText: 'Hola%20NEXUS!%20Me%20interesa%20el%20equipo%20NEXUS%20Spectre%20RGB%20Custom%20Loop.'
+        // BASE DE DATOS DE PRODUCTOS (CATÁLOGO TIPO COMPRA GAMER)
+        const productsDatabase = [
+            {
+                id: 'p1',
+                title: 'NEXUS Spectre RTX 4080 Super',
+                category: 'rigs',
+                img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80',
+                desc: 'PC Gaming extrema ensamblada con refrigeración líquida personalizada PETG, Intel i7 14700K y 32GB DDR5.',
+                priceCash: 2450000,
+                priceList: 2880000,
+                stock: true
             },
-            'p2': {
-                title: 'Combo Ensamble Z790 + i9 14900K',
-                tag: 'Componentes High-End',
-                img: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Kit de procesador y motherboard montados, actualizados a la última versión de BIOS e inspeccionados bajo microscopio de taller.',
-                specs: [
-                    '<strong>Procesador:</strong> Intel Core i9 14900K High Bin',
-                    '<strong>Placa Madre:</strong> ASUS ROG Strix Z790-F Gaming Wi-Fi',
-                    '<strong>RAM:</strong> 64GB DDR5 Vengeance Black',
-                    '<strong>Garantía:</strong> 12 Meses directa con nuestro taller'
-                ],
-                price: '$1.280.000 ARS',
-                waText: 'Hola%20NEXUS!%20Quiero%20consultar%20por%20el%20Combo%20Z790%20%2B%20i9%2014900K.'
+            {
+                id: 'p2',
+                title: 'Procesador Intel Core i5 13400F 10-Cores',
+                category: 'cpu',
+                img: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80',
+                desc: 'Procesador de 10 núcleos y 16 hilos ideal para gaming 1080p/2K y multitarea.',
+                priceCash: 210000,
+                priceList: 245000,
+                stock: true
             },
-            'p3': {
-                title: 'Service Mantenimiento GPU RTX 4090',
-                tag: 'Service de Placa de Video',
-                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Mantenimiento térmico profundo para placas de gama extrema. Reemplazo de thermal pads secos por Gelid Ultimate y Metal Líquido en el DIE.',
-                specs: [
-                    '<strong>Reducción Temp:</strong> Hasta -22°C en VRAM y GPU Core',
-                    '<strong>Materiales:</strong> Thermal Pads Gelid 15 W/mK + Thermal Grizzly',
-                    '<strong>Testeo:</strong> 2 Horas continuas de FurMark 4K',
-                    '<strong>Incluye:</strong> Limpieza por ultrasónica de disipador'
-                ],
-                price: '$120.000 ARS',
-                waText: 'Hola%20NEXUS!%20Necesito%20hacerle%20mantenimiento%20termico%20a%20mi%20Placa%20de%20Video.'
+            {
+                id: 'p3',
+                title: 'Procesador AMD Ryzen 7 7800X3D AM5',
+                category: 'cpu',
+                img: 'https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80',
+                desc: 'El procesador más rápido del mundo para gaming con tecnología 3D V-Cache.',
+                priceCash: 620000,
+                priceList: 710000,
+                stock: true
             },
-            'p4': {
-                title: 'Diagnóstico & Micro-soldadura SMD',
-                tag: 'Laboratorio Electrónico',
-                img: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Reparación de placas de video, motherboards o fuentes cortocircuitadas utilizando osciloscopio, microscopio y estación de soldado por aire caliente.',
-                specs: [
-                    '<strong>Servicios:</strong> Cambio de Mosfets, Capacitores, PWM y VRAM',
-                    '<strong>Insumos:</strong> Flux Amtech profesional + Soldadura de plata',
-                    '<strong>Informe:</strong> Entrega de diagnóstico técnico detallado',
-                    '<strong>Presupuesto:</strong> Sin cargo'
-                ],
-                price: 'Presupuesto Sin Cargo',
-                waText: 'Hola%20NEXUS!%20Tengo%20un%20componente%20con%20fallas%20para%20revision%20electronica.'
+            {
+                id: 'p4',
+                title: 'Nvidia GeForce RTX 4060 8GB OC Edition',
+                category: 'gpu',
+                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=600&q=80',
+                desc: 'Placa de video de arquitectura Ada Lovelace con DLSS 3 y Ray Tracing.',
+                priceCash: 390000,
+                priceList: 450000,
+                stock: true
             },
-            'p5': {
-                title: 'Estación Workstation Creator 4K',
-                tag: 'Rig Workstation',
-                img: 'https://images.unsplash.com/photo-1616588589676-63b3bd49651c?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Equipo diseñado específicamente para arquitectos, editores de video 4K/8K, renderizado en Blender y desarrollo de Software/IA.',
-                specs: [
-                    '<strong>GPU:</strong> Nvidia RTX 4090 24GB GDDR6X',
-                    '<strong>Procesador:</strong> AMD Ryzen 9 7950X3D 16 Núcleos',
-                    '<strong>Almacenamiento:</strong> 4TB NVMe SSD PCIe 4.0 (7000MB/s)',
-                    '<strong>RAM:</strong> 96GB DDR5 Corsair Vengeance Pro',
-                    '<strong>Gabinete:</strong> Lian Li O11 Dynamic EVO XL'
-                ],
-                price: '$3.900.000 ARS',
-                waText: 'Hola%20NEXUS!%20Quiero%20consultar%20por%20la%20Workstation%20Creator%204K.'
+            {
+                id: 'p5',
+                title: 'Nvidia GeForce RTX 4070 Super 12GB',
+                category: 'gpu',
+                img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
+                desc: 'Rendimiento fluido en resolución 2K Ultra y 4K con tecnología DLSS 3.5.',
+                priceCash: 680000,
+                priceList: 790000,
+                stock: true
             },
-            'p6': {
-                title: 'Refurbish Consolas & Análogos Anti-Drift',
-                tag: 'Modding Consolas',
-                img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80',
-                desc: 'Service completo para PlayStation 5, Xbox y mandos. Cambio de palancas análogas por sensores electromagnéticos Hall Effect que jamás se rompen.',
-                specs: [
-                    '<strong>Análogos:</strong> Sensores Magnéticos Hall Effect (0% Drift)',
-                    '<strong>Consolas:</strong> Cambio de Metal Líquido original PS5',
-                    '<strong>Limpieza:</strong> Desarme completo + Baño ultrasónico',
-                    '<strong>Garantía:</strong> 6 Meses de cobertura en repuestos'
-                ],
-                price: '$65.000 ARS',
-                waText: 'Hola%20NEXUS!%20Quiero%20hacerle%20service%20a%20mi%20consola/joystick.'
+            {
+                id: 'p6',
+                title: 'Placa Madre ASUS ROG Strix Z790-F Wi-Fi',
+                category: 'mother',
+                img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+                desc: 'Motherboard Enthusiast con fases VRM robustas, PCIe 5.0 y Wi-Fi 6E incorporado.',
+                priceCash: 290000,
+                priceList: 335000,
+                stock: true
+            },
+            {
+                id: 'p7',
+                title: 'Memoria RAM 32GB (2x16) DDR5 6000MHz RGB',
+                category: 'ram',
+                img: 'https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80',
+                desc: 'Kit dual channel de alta velocidad con disipador térmico de aluminio e iluminación ARGB.',
+                priceCash: 128000,
+                priceList: 150000,
+                stock: true
+            },
+            {
+                id: 'p8',
+                title: 'Disco SSD M.2 NVMe 1TB Kingston NV2 3500MB/s',
+                category: 'ram',
+                img: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
+                desc: 'Almacenamiento ultra rápido en formato compacto M.2 PCIe 4.0.',
+                priceCash: 58000,
+                priceList: 68000,
+                stock: true
             }
-        };
+        ];
 
-        // FUNCIONALIDAD DEL MODAL DE PRODUCTO
-        const modal = document.getElementById('product-modal');
-        const modalContainer = document.getElementById('modal-container');
+        // ESTADO DEL CARRITO DE COMPRAS
+        let cart = [];
 
+        // RENDERIZAR PRODUCTOS EN EL CATÁLOGO
+        function renderProducts(products) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (products.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-nexus-darkText text-sm py-12">No se encontraron productos coincidentes.</p>`;
+                return;
+            }
+
+            products.forEach(p => {
+                const formattedCash = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceCash);
+                const formattedList = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceList);
+
+                grid.innerHTML += `
+                    <div class="glass-card rounded-2xl overflow-hidden border border-nexus-border flex flex-col justify-between group">
+                        <div>
+                            <div onclick="openProductModal('${p.id}')" class="relative h-48 overflow-hidden cursor-pointer">
+                                <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-2.5 left-2.5 bg-nexus-neon text-black text-[9px] font-title font-bold px-2 py-0.5 rounded-md uppercase">En Stock</span>
+                            </div>
+                            
+                            <div class="p-4">
+                                <h3 onclick="openProductModal('${p.id}')" class="text-sm font-title font-bold text-white group-hover:text-nexus-neon transition cursor-pointer line-clamp-2">${p.title}</h3>
+                                <p class="text-[11px] text-nexus-darkText mt-1 line-clamp-2">${p.desc}</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 pt-0 space-y-3">
+                            <div class="border-t border-nexus-border pt-2 space-y-0.5">
+                                <div>
+                                    <span class="text-[9px] uppercase text-nexus-neon font-title font-bold block">PRECIO ESPECIAL (Contado)</span>
+                                    <span class="text-lg font-title font-bold text-nexus-neon">${formattedCash}</span>
+                                </div>
+                                <div>
+                                    <span class="text-[9px] uppercase text-nexus-priceList font-title font-bold block">PRECIO DE LISTA</span>
+                                    <span class="text-xs font-title font-semibold text-gray-400">${formattedList}</span>
+                                </div>
+                            </div>
+
+                            <button onclick="addToCart('${p.id}')" class="w-full btn-neon font-title font-bold py-2 rounded-xl text-xs uppercase flex items-center justify-center gap-1.5">
+                                <i class="fas fa-cart-plus text-xs"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // FILTRAR POR CATEGORÍA
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(b => {
+                if(b.getAttribute('data-cat') === cat) {
+                    b.classList.add('bg-nexus-neon', 'text-black');
+                    b.classList.remove('text-gray-400');
+                } else {
+                    b.classList.remove('bg-nexus-neon', 'text-black');
+                    b.classList.add('text-gray-400');
+                }
+            });
+
+            if (cat === 'all') {
+                renderProducts(productsDatabase);
+            } else {
+                const filtered = productsDatabase.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // BUSCADOR EN TIEMPO REAL
+        function searchProducts() {
+            const query = document.getElementById('store-search-input').value.toLowerCase();
+            const filtered = productsDatabase.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        function searchProductsMobile() {
+            const query = document.getElementById('store-search-input-mobile').value.toLowerCase();
+            const filtered = productsDatabase.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // FUNCIONALIDAD DEL CARRITO DE COMPRAS
+        function addToCart(productId) {
+            const product = productsDatabase.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function updateCartQty(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.qty += change;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            // Actualizar badge
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge-count').innerText = totalCount;
+
+            // Renderizar items
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-xs text-nexus-darkText py-8">Tu carrito está vacío.</p>`;
+                document.getElementById('cart-total-cash').innerText = '$0 ARS';
+                document.getElementById('cart-total-list').innerText = '$0 ARS';
+                return;
+            }
+
+            let totalCash = 0;
+            let totalList = 0;
+
+            cart.forEach(item => {
+                const itemCash = item.priceCash * item.qty;
+                const itemList = item.priceList * item.qty;
+                totalCash += itemCash;
+                totalList += itemList;
+
+                const formattedCash = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(itemCash);
+
+                container.innerHTML += `
+                    <div class="glass-card p-3 rounded-xl flex items-center justify-between gap-3 border border-nexus-border">
+                        <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-title font-bold text-white truncate">${item.title}</h4>
+                            <span class="text-xs text-nexus-neon font-bold">${formattedCash}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-nexus-bg border border-nexus-border px-2 py-1 rounded-lg">
+                            <button onclick="updateCartQty('${item.id}', -1)" class="text-gray-400 hover:text-white text-xs font-bold">-</button>
+                            <span class="text-xs font-title font-bold text-white px-1">${item.qty}</span>
+                            <button onclick="updateCartQty('${item.id}', 1)" class="text-gray-400 hover:text-white text-xs font-bold">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-total-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
+            document.getElementById('cart-total-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalList);
+        }
+
+        function toggleCartDrawer(openOnly = false) {
+            const drawer = document.getElementById('cart-drawer');
+            if (openOnly) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Agregá productos al carrito antes de finalizar.');
+                return;
+            }
+
+            let message = "Hola NEXUS Lab! Quiero realizar el siguiente pedido:\n\n";
+            let totalCash = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.priceCash * item.qty;
+                totalCash += subtotal;
+                const formattedSub = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(subtotal);
+                message += `▪ ${item.qty}x ${item.title} - ${formattedSub}\n`;
+            });
+
+            const formattedTotal = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
+            message += `\n TOTAL ESPECIAL (Efectivo/Transf): ${formattedTotal}`;
+            message += `\n Quisiera coordinar el pago y retiro/envío.`;
+
+            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // CONFIGURADOR "ARMÁ TU PC" EN VIVO
+        function updateBuilderTotal() {
+            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
+            let totalCash = 0;
+            let totalList = 0;
+
+            selects.forEach(id => {
+                const select = document.getElementById(`builder-${id}`);
+                const opt = select.options[select.selectedIndex];
+                totalCash += parseFloat(opt.value || 0);
+                totalList += parseFloat(opt.getAttribute('data-price-list') || 0);
+            });
+
+            document.getElementById('builder-total-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
+            document.getElementById('builder-total-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalList);
+        }
+
+        function addBuilderBuildToCart() {
+            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
+            let addedCount = 0;
+
+            selects.forEach(id => {
+                const select = document.getElementById(`builder-${id}`);
+                const opt = select.options[select.selectedIndex];
+                const priceCash = parseFloat(opt.value || 0);
+                const priceList = parseFloat(opt.getAttribute('data-price-list') || 0);
+                const name = opt.getAttribute('data-name');
+
+                if (priceCash > 0 && name) {
+                    const tempId = 'custom-' + id + '-' + Date.now();
+                    cart.push({
+                        id: tempId,
+                        title: name,
+                        img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=200&q=80',
+                        priceCash: priceCash,
+                        priceList: priceList,
+                        qty: 1
+                    });
+                    addedCount++;
+                }
+            });
+
+            if (addedCount === 0) {
+                alert('Por favor elegí al menos un componente para tu armado.');
+                return;
+            }
+
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function sendBuilderToWhatsApp() {
+            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
+            let message = "Hola NEXUS Lab! Quiero consultar por el siguiente presupuesto para armar mi PC:\n\n";
+            let total = 0;
+
+            selects.forEach(id => {
+                const select = document.getElementById(`builder-${id}`);
+                const opt = select.options[select.selectedIndex];
+                const price = parseFloat(opt.value || 0);
+                const name = opt.getAttribute('data-name');
+
+                if (price > 0 && name) {
+                    total += price;
+                    message += `▪ ${name}\n`;
+                }
+            });
+
+            if (total === 0) {
+                alert('Seleccioná los componentes antes de consultar.');
+                return;
+            }
+
+            const formattedTotal = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(total);
+            message += `\n TOTAL ESTIMADO (Contado): ${formattedTotal}`;
+
+            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // MODAL DETALLE DE PRODUCTO
         function openProductModal(productId) {
-            const p = productsData[productId];
+            const p = productsDatabase.find(item => item.id === productId);
             if (!p) return;
 
             document.getElementById('modal-title').innerText = p.title;
-            document.getElementById('modal-tag').innerText = p.tag;
+            document.getElementById('modal-category').innerText = p.category;
             document.getElementById('modal-img').src = p.img;
             document.getElementById('modal-desc').innerText = p.desc;
-            document.getElementById('modal-price').innerText = p.price;
+            document.getElementById('modal-price-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceCash);
+            document.getElementById('modal-price-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceList);
 
-            // Cargar lista de specs
-            const specsUl = document.getElementById('modal-specs');
-            specsUl.innerHTML = p.specs.map(s => `<li class="flex items-center gap-2"><i class="fas fa-check text-nexus-neon text-[10px]"></i> <span>${s}</span></li>`).join('');
+            document.getElementById('modal-add-cart-btn').onclick = function() {
+                addToCart(p.id);
+                closeProductModal();
+            };
 
-            // Link WhatsApp
-            document.getElementById('modal-wa-btn').href = `https://wa.me/5493489000000?text=${p.waText}`;
-
-            // Abrir Animado
+            const modal = document.getElementById('product-modal');
             modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modalContainer.classList.remove('scale-95');
-                modalContainer.classList.add('scale-100');
-            }, 10);
         }
 
         function closeProductModal() {
-            modalContainer.classList.remove('scale-100');
-            modalContainer.classList.add('scale-95');
+            const modal = document.getElementById('product-modal');
             modal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        // Cerrar modal al hacer clic afuera del contenedor
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeProductModal();
-            }
-        });
-
-        // Filtrado de Proyectos por Categoría
-        function filterProjects(category) {
-            const items = document.querySelectorAll('.project-item');
-            const buttons = document.querySelectorAll('.project-btn');
-
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-filter') === category) {
-                    btn.classList.add('bg-nexus-neon', 'text-black');
-                    btn.classList.remove('text-gray-400');
-                } else {
-                    btn.classList.remove('bg-nexus-neon', 'text-black');
-                    btn.classList.add('text-gray-400');
-                }
-            });
-
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Calculadora de Presupuesto en Vivo JS
-        function calculatePcBudget() {
-            const tierBase = parseFloat(document.getElementById('pc-tier').value);
-            const hasSleeving = document.getElementById('opt-sleeving').checked;
-            const hasLiquid = document.getElementById('opt-liquid').checked;
-            const hasOptimization = document.getElementById('opt-optimization').checked;
-            const deliveryMultiplier = parseFloat(document.getElementById('pc-delivery').value);
-
-            let total = tierBase;
-            if (hasSleeving) total += 45000;
-            if (hasLiquid) total += 120000;
-            if (hasOptimization) total += 35000;
-
-            total = total * deliveryMultiplier;
-
-            const formattedTotal = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(total);
-            document.getElementById('pc-total-price').innerText = formattedTotal;
-        }
-
-        function sendPcEstimateWhatsApp() {
-            const total = document.getElementById('pc-total-price').innerText;
-            const msg = `Hola NEXUS Lab! Estuve usando el simulador en la web y me interesa consultar por un armado estimado en ${total}.`;
-            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(msg)}`, '_blank');
+            setTimeout(() => modal.classList.add('hidden'), 300);
         }
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            alert('¡Gracias por comunicarte con NEXUS Lab! Te responderemos por WhatsApp a la brevedad para coordinar tu trabajo.');
+            alert('¡Gracias por comunicarte con NEXUS Lab! Te responderemos por WhatsApp a la brevedad.');
         }
 
-        // Animación de Contadores al hacer Scroll
-        const counters = document.querySelectorAll('.counter');
-        let animated = false;
-
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + window.innerHeight;
-            const heroSection = document.getElementById('home');
-
-            if (heroSection && scrollPos > heroSection.offsetTop + 200 && !animated) {
-                animated = true;
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    let count = 0;
-                    const speed = target / 40;
-
-                    const updateCount = () => {
-                        count += speed;
-                        if (count < target) {
-                            counter.innerText = Math.ceil(count);
-                            setTimeout(updateCount, 30);
-                        } else {
-                            counter.innerText = target + (target === 100 ? '%' : '+');
-                        }
-                    };
-                    updateCount();
-                });
-            }
-        });
+        // RENDERIZADO INICIAL
+        renderProducts(productsDatabase);
     </script>
 </body>
 </html>
