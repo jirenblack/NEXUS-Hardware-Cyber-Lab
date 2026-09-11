@@ -96,7 +96,7 @@
 <body class="bg-nexus-bg text-gray-200 font-body antialiased overflow-x-hidden selection:bg-nexus-neon selection:text-black">
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+    <nav class="fixed top-0 w-full z-40 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="#home" class="flex items-center gap-2 group">
@@ -110,7 +110,7 @@
             <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-gray-300">
                 <a href="#home" class="hover:text-nexus-neon transition-colors">Inicio</a>
                 <a href="#servicios" class="hover:text-nexus-neon transition-colors">Especialidades</a>
-                <a href="#galeria" class="hover:text-nexus-neon transition-colors">Proyectos Realizados</a>
+                <a href="#galeria" class="hover:text-nexus-neon transition-colors">Catálogo & Proyectos</a>
                 <a href="#armador" class="hover:text-nexus-neon transition-colors">Armador Live</a>
                 <a href="#proceso" class="hover:text-nexus-neon transition-colors">Garantía & Testeo</a>
                 <a href="#contacto" class="hover:text-nexus-neon transition-colors">Contacto</a>
@@ -133,7 +133,7 @@
         <div id="mobile-menu" class="hidden lg:hidden bg-nexus-card border-b border-nexus-border px-6 py-6 space-y-4 text-sm font-semibold">
             <a href="#home" class="block text-gray-300 hover:text-nexus-neon">Inicio</a>
             <a href="#servicios" class="block text-gray-300 hover:text-nexus-neon">Especialidades</a>
-            <a href="#galeria" class="block text-gray-300 hover:text-nexus-neon">Proyectos Realizados</a>
+            <a href="#galeria" class="block text-gray-300 hover:text-nexus-neon">Catálogo & Proyectos</a>
             <a href="#armador" class="block text-gray-300 hover:text-nexus-neon">Armador Live</a>
             <a href="#proceso" class="block text-gray-300 hover:text-nexus-neon">Garantía & Testeo</a>
             <a href="#contacto" class="block text-gray-300 hover:text-nexus-neon">Contacto</a>
@@ -145,7 +145,6 @@
 
     <!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
-        <!-- Glows de fondo -->
         <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-nexus-neon/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
@@ -170,7 +169,7 @@
                         <i class="fas fa-sliders text-base"></i> Armar Mi Presupuesto
                     </a>
                     <a href="#galeria" class="glass-card text-white hover:text-nexus-neon font-title font-semibold px-8 py-4 rounded-xl text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-3">
-                        <i class="fas fa-desktop"></i> Ver Galería de Rigs
+                        <i class="fas fa-desktop"></i> Ver Productos & Rigs
                     </a>
                 </div>
 
@@ -191,15 +190,22 @@
                 </div>
             </div>
 
-            <!-- Hero Image Preview (Imagen exacta de Setup Cyber/RGB) -->
+            <!-- Hero Image Preview con Modal -->
             <div class="lg:col-span-5 relative" data-aos="fade-left">
-                <div class="relative z-10 rounded-2xl overflow-hidden border border-nexus-border shadow-2xl group">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Estación de Trabajo & Gaming High-End NEXUS" class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700">
+                <div onclick="openProductModal('p1')" class="relative z-10 rounded-2xl overflow-hidden border border-nexus-border shadow-2xl group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Estación de Trabajo NEXUS Titan" class="w-full h-[480px] object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-nexus-bg via-transparent to-transparent"></div>
                     
+                    <!-- Overlay de interacción al pasar el mouse -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="btn-neon font-title font-bold px-6 py-3 rounded-xl text-xs uppercase flex items-center gap-2">
+                            <i class="fas fa-eye text-sm"></i> Ver Detalles del Rig
+                        </span>
+                    </div>
+
                     <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-xl flex items-center justify-between">
                         <div>
-                            <p class="text-xs text-nexus-neon font-title font-bold uppercase tracking-wider"><i class="fas fa-bolt"></i> Sistema Destacado</p>
+                            <p class="text-xs text-nexus-neon font-title font-bold uppercase tracking-wider"><i class="fas fa-bolt"></i> Sistema Destacado (Tocá para ver)</p>
                             <p class="text-white font-title font-bold text-sm sm:text-base">NEXUS Titan - RTX 4090 / i9 14900KS</p>
                         </div>
                         <span class="bg-nexus-neon/20 text-nexus-neon text-xs font-bold px-3 py-1.5 rounded-lg border border-nexus-neon/40">Custom Loop</span>
@@ -210,7 +216,7 @@
         </div>
     </section>
 
-    <!-- ESPECIALIDADES / SERVICIOS -->
+    <!-- ESPECIALIDADES -->
     <section id="servicios" class="py-24 bg-nexus-card relative border-y border-nexus-border">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -219,7 +225,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Servicio 1 -->
                 <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
@@ -235,7 +240,6 @@
                     </span>
                 </div>
 
-                <!-- Servicio 2 -->
                 <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
@@ -251,7 +255,6 @@
                     </span>
                 </div>
 
-                <!-- Servicio 3 -->
                 <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
@@ -267,7 +270,6 @@
                     </span>
                 </div>
 
-                <!-- Servicio 4 -->
                 <div class="glass-card p-6 rounded-2xl flex flex-col justify-between transition group" data-aos="fade-up" data-aos-delay="300">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-nexus-neon/10 text-nexus-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-nexus-neon group-hover:text-black transition">
@@ -286,14 +288,15 @@
         </div>
     </section>
 
-    <!-- GALERÍA CON FILTROS DINÁMICOS E IMÁGENES EXACTAS -->
+    <!-- CATÁLOGO & GALERÍA INTERACTIVA (CLICK EN CUALQUIER PRODUCTO ABRE EL MODAL) -->
     <section id="galeria" class="py-28 bg-nexus-bg">
         <div class="max-w-7xl mx-auto px-6">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-aos="fade-up">
                 <div>
-                    <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Proyectos Reales del Taller</span>
-                    <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Muestras de Hardware & Trabajos</h2>
+                    <span class="text-xs font-title font-bold uppercase tracking-widest text-nexus-neon">Catálogo Interactivo de Productos</span>
+                    <h2 class="text-3xl sm:text-5xl font-title font-bold text-white mt-2">Muestras & Equipos Disponibles</h2>
+                    <p class="text-nexus-darkText text-xs sm:text-sm mt-2">Hacé clic en cualquier producto o foto para ver sus especificaciones completas y cotización.</p>
                 </div>
 
                 <!-- Botones de Filtrado JS -->
@@ -309,74 +312,128 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
                 
                 <!-- Card 1: PC Custom RGB Watercooled -->
-                <div class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up">
+                <div onclick="openProductModal('p1')" class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="Rig Custom Watercooled RGB" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-neon text-xs font-bold px-3 py-1 rounded-full border border-nexus-neon/30">Custom Rig</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">NEXUS Spectre RGB Loop</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Refrigeración líquida personalizada con tubos rígidos e iluminación ARGB sincronizada.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">NEXUS Spectre RGB Loop</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Refrigeración líquida personalizada con tubos rígidos PETG e iluminación ARGB.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">$2.450.000 ARS</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 2: Motherboard y Procesador -->
-                <div class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up" data-aos-delay="100">
+                <div onclick="openProductModal('p2')" class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80" alt="Procesador en Socket de Placa Madre" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-cyan text-xs font-bold px-3 py-1 rounded-full border border-nexus-cyan/30">Componente</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">Ensamble de CPU & RAM DDR5</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Montaje de procesadores de última generación sobre motherboards Z790/X670E.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Kit Ensamble Z790 + i9 14900K</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Combo de motherboard de alta gama y procesador optimizado por nuestro taller.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">$1.280.000 ARS</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 3: Placa de Video GPU High End -->
-                <div class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up" data-aos-delay="200">
+                <div onclick="openProductModal('p3')" class="project-item componentes glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80" alt="Placa de Video GPU High End" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-cyan text-xs font-bold px-3 py-1 rounded-full border border-nexus-cyan/30">GPU Extreme</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">Mantenimiento de Placa de Video</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Repaste, cambio de thermal pads e inspección de circuitos en placas de gama alta.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Service Mantenimiento GPU RTX 4090</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Repaste térmico con Metal Líquido y thermal pads de 15 W/mK.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">$120.000 ARS</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 4: Taller de Electrónica y Placa de Circuito -->
-                <div class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up">
+                <div onclick="openProductModal('p4')" class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=800&q=80" alt="Banco de Trabajo Técnico y Micro-soldadura" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-yellow-400 text-xs font-bold px-3 py-1 rounded-full border border-yellow-400/30">Taller</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">Banco de Micro-Soldadura</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Diagnóstico electrónico por osciloscopio, reemplazo de capacitores y reparación SMD.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Reparación Electrónica SMD</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Diagnóstico por osciloscopio y cambio de componentes SMD dañados.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">Presupuesto Sin Cargo</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 5: Setup Completo Escritorio -->
-                <div class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up" data-aos-delay="100">
+                <div onclick="openProductModal('p5')" class="project-item rigs glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1616588589676-63b3bd49651c?auto=format&fit=crop&w=800&q=80" alt="Escritorio Setup Dual Monitor Workstation" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-nexus-neon text-xs font-bold px-3 py-1 rounded-full border border-nexus-neon/30">Workstation</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">Setup Estación de Trabajo & Stream</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Integración total de periféricos, orden de cables (cable management) y monitores.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Estación de Trabajo Creator 4K</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Equipo armado para renderizado 3D, edición 4K y streaming profesional.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">$3.900.000 ARS</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 6: Consola & Joystick Hardware -->
-                <div class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group" data-aos="fade-up" data-aos-delay="200">
+                <div onclick="openProductModal('p6')" class="project-item taller glass-card rounded-2xl overflow-hidden border border-nexus-border group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" alt="Consola y Joystick Hardware" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                         <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md text-yellow-400 text-xs font-bold px-3 py-1 rounded-full border border-yellow-400/30">Modding</span>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="btn-neon font-title font-bold px-4 py-2 rounded-xl text-xs uppercase flex items-center gap-2">
+                                <i class="fas fa-search-plus"></i> Ver Producto
+                            </span>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-title font-bold text-white">Refurbish de Consolas & Joysticks</h3>
-                        <p class="text-xs text-nexus-darkText mt-1">Limpieza interna profunda, cambio de análogos (Hall Effect anti-drift) y mantenimiento.</p>
+                        <h3 class="text-lg font-title font-bold text-white group-hover:text-nexus-neon transition">Refurbish Consolas & Análogos Anti-Drift</h3>
+                        <p class="text-xs text-nexus-darkText mt-1">Instalación de joysticks con sensores magnéticos Hall Effect para cero drift.</p>
+                        <div class="mt-4 flex items-center justify-between border-t border-nexus-border pt-3">
+                            <span class="text-nexus-neon font-title font-bold text-sm">$65.000 ARS</span>
+                            <span class="text-[11px] text-gray-400 font-semibold flex items-center gap-1">Ver detalles <i class="fas fa-arrow-right text-[9px]"></i></span>
+                        </div>
                     </div>
                 </div>
 
@@ -384,7 +441,7 @@
         </div>
     </section>
 
-    <!-- ARMADOR INTERACTIVO / COTIZADOR LIVE EN JAVASCRIPT -->
+    <!-- ARMADOR INTERACTIVO -->
     <section id="armador" class="py-28 bg-nexus-card border-y border-nexus-border relative">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12" data-aos="fade-up">
@@ -396,7 +453,6 @@
             <div class="glass-card p-8 sm:p-10 rounded-3xl" data-aos="zoom-in">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     
-                    <!-- Opciones del Simulador -->
                     <div class="space-y-6">
                         <div>
                             <label class="block text-xs font-title font-bold uppercase text-gray-300 mb-2">Gama / Uso del Sistema</label>
@@ -434,7 +490,6 @@
                         </div>
                     </div>
 
-                    <!-- Cuadro de Total Live -->
                     <div class="bg-nexus-bg p-6 sm:p-8 rounded-2xl border border-nexus-border flex flex-col justify-between h-full space-y-6">
                         <div>
                             <span class="text-xs uppercase text-nexus-darkText font-title font-bold tracking-widest">Presupuesto Estimado</span>
@@ -455,7 +510,7 @@
         </div>
     </section>
 
-    <!-- PROCESO DE TESTEO & GARANTÍA -->
+    <!-- PROCESO -->
     <section id="proceso" class="py-28 bg-nexus-bg">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -464,28 +519,24 @@
             </div>
 
             <div class="grid md:grid-cols-4 gap-6">
-                <!-- Paso 1 -->
                 <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up">
                     <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">01</span>
                     <h3 class="text-lg font-title font-bold text-white mb-2">1. Diagnóstico</h3>
                     <p class="text-nexus-darkText text-xs leading-relaxed">Selección de componentes 100% compatibles y verificación de consumo energético de la fuente (PSU).</p>
                 </div>
 
-                <!-- Paso 2 -->
                 <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="100">
                     <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">02</span>
                     <h3 class="text-lg font-title font-bold text-white mb-2">2. Ensamble VIP</h3>
                     <p class="text-nexus-darkText text-xs leading-relaxed">Montaje libre de estática, ruteo invisible de cables y ajuste preciso de torque en disipadores.</p>
                 </div>
 
-                <!-- Paso 3 -->
                 <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="200">
                     <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">03</span>
                     <h3 class="text-lg font-title font-bold text-white mb-2">3. Stress Test</h3>
                     <p class="text-nexus-darkText text-xs leading-relaxed">Pruebas continuas en Cinebench, FurMark y MemTest86 para garantizar cero pantalla azul y bajas temperaturas.</p>
                 </div>
 
-                <!-- Paso 4 -->
                 <div class="glass-card p-6 rounded-2xl relative border border-nexus-border" data-aos="fade-up" data-aos-delay="300">
                     <span class="text-4xl font-title font-bold text-nexus-neon/20 absolute top-4 right-4">04</span>
                     <h3 class="text-lg font-title font-bold text-white mb-2">4. Entrega Listo</h3>
@@ -495,7 +546,7 @@
         </div>
     </section>
 
-    <!-- CONTACTO & UBICACIÓN -->
+    <!-- CONTACTO -->
     <section id="contacto" class="py-28 bg-nexus-card border-t border-nexus-border">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
             
@@ -575,6 +626,56 @@
         </div>
     </footer>
 
+
+    <!-- MODAL / VENTANA FLOTANTE DE DETALLE DE PRODUCTO -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
+        
+        <div class="glass-card bg-nexus-card max-w-3xl w-full rounded-3xl overflow-hidden border border-nexus-neon/40 relative shadow-2xl transform transition-all duration-300 scale-95" id="modal-container">
+            
+            <!-- Botón Cerrar (X) -->
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white hover:text-nexus-neon flex items-center justify-center border border-white/10 transition">
+                <i class="fas fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid md:grid-cols-12 gap-0">
+                <!-- Imagen del Producto -->
+                <div class="md:col-span-6 relative h-64 md:h-full min-h-[280px]">
+                    <img id="modal-img" src="" alt="Producto NEXUS" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-nexus-card via-transparent to-transparent md:bg-gradient-to-r"></div>
+                    <span id="modal-tag" class="absolute top-4 left-4 bg-nexus-neon text-black text-[10px] font-title font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tag</span>
+                </div>
+
+                <!-- Info Detallada -->
+                <div class="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div>
+                        <h3 id="modal-title" class="text-2xl font-title font-bold text-white">Título del Producto</h3>
+                        <p id="modal-desc" class="text-xs text-nexus-darkText mt-2 leading-relaxed">Descripción del producto...</p>
+                        
+                        <!-- Lista de Specs -->
+                        <div class="mt-4 pt-4 border-t border-nexus-border">
+                            <p class="text-xs font-title font-bold uppercase text-nexus-neon tracking-wider mb-2"><i class="fas fa-microchip"></i> Especificaciones Técnicas:</p>
+                            <ul id="modal-specs" class="space-y-1.5 text-xs text-gray-300 font-body">
+                                <!-- Se llena dinámicamente -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-nexus-border flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-[10px] uppercase text-nexus-darkText font-title font-bold">Precio / Valor Estimado:</span>
+                            <p id="modal-price" class="text-xl sm:text-2xl font-title font-bold text-nexus-neon">$0 ARS</p>
+                        </div>
+                        <a id="modal-wa-btn" href="#" target="_blank" class="btn-neon font-title font-bold px-5 py-3 rounded-xl text-xs uppercase flex items-center gap-2 shrink-0">
+                            <i class="fab fa-whatsapp text-sm"></i> Pedir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     <!-- AOS (Animate On Scroll) JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     
@@ -590,6 +691,141 @@
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // BASE DE DATOS DE PRODUCTOS Y TRABAJOS DEL TALLER
+        const productsData = {
+            'p1': {
+                title: 'NEXUS Spectre RGB Custom Loop',
+                tag: 'Rig Custom PC',
+                img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Computadora ensamblada a mano con circuito cerrado de agua (Watercooling PETG), fittings de presión de bronce y líquido refrigerante UV.',
+                specs: [
+                    '<strong>GPU:</strong> Nvidia RTX 4080 Super 16GB OC',
+                    '<strong>Procesador:</strong> Intel Core i7 14700K 20 Núcleos',
+                    '<strong>RAM:</strong> 32GB DDR5 6000MHz RGB Corsair',
+                    '<strong>Watercooling:</strong> Bloque Ekwb + Tubos Rígidos 16mm',
+                    '<strong>Fuente:</strong> 850W 80+ Gold Mod'
+                ],
+                price: '$2.450.000 ARS',
+                waText: 'Hola%20NEXUS!%20Me%20interesa%20el%20equipo%20NEXUS%20Spectre%20RGB%20Custom%20Loop.'
+            },
+            'p2': {
+                title: 'Combo Ensamble Z790 + i9 14900K',
+                tag: 'Componentes High-End',
+                img: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Kit de procesador y motherboard montados, actualizados a la última versión de BIOS e inspeccionados bajo microscopio de taller.',
+                specs: [
+                    '<strong>Procesador:</strong> Intel Core i9 14900K High Bin',
+                    '<strong>Placa Madre:</strong> ASUS ROG Strix Z790-F Gaming Wi-Fi',
+                    '<strong>RAM:</strong> 64GB DDR5 Vengeance Black',
+                    '<strong>Garantía:</strong> 12 Meses directa con nuestro taller'
+                ],
+                price: '$1.280.000 ARS',
+                waText: 'Hola%20NEXUS!%20Quiero%20consultar%20por%20el%20Combo%20Z790%20%2B%20i9%2014900K.'
+            },
+            'p3': {
+                title: 'Service Mantenimiento GPU RTX 4090',
+                tag: 'Service de Placa de Video',
+                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Mantenimiento térmico profundo para placas de gama extrema. Reemplazo de thermal pads secos por Gelid Ultimate y Metal Líquido en el DIE.',
+                specs: [
+                    '<strong>Reducción Temp:</strong> Hasta -22°C en VRAM y GPU Core',
+                    '<strong>Materiales:</strong> Thermal Pads Gelid 15 W/mK + Thermal Grizzly',
+                    '<strong>Testeo:</strong> 2 Horas continuas de FurMark 4K',
+                    '<strong>Incluye:</strong> Limpieza por ultrasónica de disipador'
+                ],
+                price: '$120.000 ARS',
+                waText: 'Hola%20NEXUS!%20Necesito%20hacerle%20mantenimiento%20termico%20a%20mi%20Placa%20de%20Video.'
+            },
+            'p4': {
+                title: 'Diagnóstico & Micro-soldadura SMD',
+                tag: 'Laboratorio Electrónico',
+                img: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Reparación de placas de video, motherboards o fuentes cortocircuitadas utilizando osciloscopio, microscopio y estación de soldado por aire caliente.',
+                specs: [
+                    '<strong>Servicios:</strong> Cambio de Mosfets, Capacitores, PWM y VRAM',
+                    '<strong>Insumos:</strong> Flux Amtech profesional + Soldadura de plata',
+                    '<strong>Informe:</strong> Entrega de diagnóstico técnico detallado',
+                    '<strong>Presupuesto:</strong> Sin cargo'
+                ],
+                price: 'Presupuesto Sin Cargo',
+                waText: 'Hola%20NEXUS!%20Tengo%20un%20componente%20con%20fallas%20para%20revision%20electronica.'
+            },
+            'p5': {
+                title: 'Estación Workstation Creator 4K',
+                tag: 'Rig Workstation',
+                img: 'https://images.unsplash.com/photo-1616588589676-63b3bd49651c?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Equipo diseñado específicamente para arquitectos, editores de video 4K/8K, renderizado en Blender y desarrollo de Software/IA.',
+                specs: [
+                    '<strong>GPU:</strong> Nvidia RTX 4090 24GB GDDR6X',
+                    '<strong>Procesador:</strong> AMD Ryzen 9 7950X3D 16 Núcleos',
+                    '<strong>Almacenamiento:</strong> 4TB NVMe SSD PCIe 4.0 (7000MB/s)',
+                    '<strong>RAM:</strong> 96GB DDR5 Corsair Vengeance Pro',
+                    '<strong>Gabinete:</strong> Lian Li O11 Dynamic EVO XL'
+                ],
+                price: '$3.900.000 ARS',
+                waText: 'Hola%20NEXUS!%20Quiero%20consultar%20por%20la%20Workstation%20Creator%204K.'
+            },
+            'p6': {
+                title: 'Refurbish Consolas & Análogos Anti-Drift',
+                tag: 'Modding Consolas',
+                img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80',
+                desc: 'Service completo para PlayStation 5, Xbox y mandos. Cambio de palancas análogas por sensores electromagnéticos Hall Effect que jamás se rompen.',
+                specs: [
+                    '<strong>Análogos:</strong> Sensores Magnéticos Hall Effect (0% Drift)',
+                    '<strong>Consolas:</strong> Cambio de Metal Líquido original PS5',
+                    '<strong>Limpieza:</strong> Desarme completo + Baño ultrasónico',
+                    '<strong>Garantía:</strong> 6 Meses de cobertura en repuestos'
+                ],
+                price: '$65.000 ARS',
+                waText: 'Hola%20NEXUS!%20Quiero%20hacerle%20service%20a%20mi%20consola/joystick.'
+            }
+        };
+
+        // FUNCIONALIDAD DEL MODAL DE PRODUCTO
+        const modal = document.getElementById('product-modal');
+        const modalContainer = document.getElementById('modal-container');
+
+        function openProductModal(productId) {
+            const p = productsData[productId];
+            if (!p) return;
+
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-tag').innerText = p.tag;
+            document.getElementById('modal-img').src = p.img;
+            document.getElementById('modal-desc').innerText = p.desc;
+            document.getElementById('modal-price').innerText = p.price;
+
+            // Cargar lista de specs
+            const specsUl = document.getElementById('modal-specs');
+            specsUl.innerHTML = p.specs.map(s => `<li class="flex items-center gap-2"><i class="fas fa-check text-nexus-neon text-[10px]"></i> <span>${s}</span></li>`).join('');
+
+            // Link WhatsApp
+            document.getElementById('modal-wa-btn').href = `https://wa.me/5493489000000?text=${p.waText}`;
+
+            // Abrir Animado
+            modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeProductModal() {
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Cerrar modal al hacer clic afuera del contenedor
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProductModal();
+            }
         });
 
         // Filtrado de Proyectos por Categoría
