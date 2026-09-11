@@ -191,8 +191,8 @@
             <!-- Banner Destacado / Rig Top -->
             <div class="lg:col-span-5 relative" data-aos="fade-left">
                 <div onclick="openProductModal('p1')" class="glass-card rounded-2xl p-5 border border-nexus-border hover:border-nexus-neon transition cursor-pointer group">
-                    <div class="relative rounded-xl overflow-hidden mb-4 h-64">
-                        <img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?auto=format&fit=crop&w=800&q=80" alt="NEXUS Flagship Rig" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="relative rounded-xl overflow-hidden mb-4 h-64 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="NEXUS Flagship Rig" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <span class="absolute top-3 right-3 bg-nexus-neon text-black font-title font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-lg">Destacado Septiembre</span>
                     </div>
                     <div>
@@ -249,7 +249,7 @@
                 <button onclick="filterCategory('ram')" class="cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition" data-cat="ram"><i class="fas fa-bolt mr-1.5"></i>RAM & SSD</button>
                 <button onclick="filterCategory('power')" class="cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition" data-cat="power"><i class="fas fa-plug mr-1.5"></i>Fuentes & Gabinetes</button>
                 <button onclick="filterCategory('peripherals')" class="cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition" data-cat="peripherals"><i class="fas fa-desktop mr-1.5"></i>Monitores & Periféricos</button>
-                <button onclick="filterCategory('rigs')" class="cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition" data-cat="rigs"><i class="fas fa-desktop-hardware mr-1.5"></i>PCs Armadas</button>
+                <button onclick="filterCategory('rigs')" class="cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition" data-cat="rigs"><i class="fas fa-server mr-1.5"></i>PCs Armadas</button>
             </div>
 
             <!-- GRID PRINCIPAL DE PRODUCTOS -->
@@ -441,23 +441,23 @@
                 </div>
             </div>
 
-            <!-- Formulario -->
+            <!-- Formulario Completado -->
             <div class="lg:col-span-6 glass-card p-6 sm:p-8 rounded-3xl">
                 <form onsubmit="handleContactSubmit(event)" class="space-y-3">
                     <div>
                         <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">Nombre Completo</label>
-                        <input type="text" required placeholder="Tu nombre" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                        <input type="text" id="contact-name" required placeholder="Tu nombre" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">WhatsApp de Contacto</label>
-                        <input type="tel" required placeholder="+54 3489 000000" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
+                        <input type="tel" id="contact-phone" required placeholder="+54 3489 000000" class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-[11px] font-title font-bold uppercase text-gray-300 mb-1">Consulta de Hardware</label>
-                        <textarea rows="3" placeholder="Contanos qué componentes o equipo querés cotizar..." class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none"></textarea>
+                        <textarea id="contact-message" rows="3" placeholder="Contanos qué componentes o equipo querés cotizar..." class="w-full bg-nexus-bg border border-nexus-border text-white text-xs rounded-xl p-3 focus:border-nexus-neon focus:outline-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full btn-neon font-title font-bold py-3 rounded-xl text-xs uppercase tracking-wider">
-                        Enviar Consulta por WhatsApp
+                    <button type="submit" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 mt-2">
+                        <i class="fas fa-paper-plane"></i> Enviar Consulta
                     </button>
                 </form>
             </div>
@@ -465,476 +465,311 @@
         </div>
     </section>
 
-
     <!-- FOOTER -->
-    <footer class="py-8 bg-black border-t border-nexus-border text-nexus-darkText text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <span class="font-title font-bold text-white text-base">NEXUS<span class="text-nexus-neon">.LAB</span></span>
-                <span class="ml-2">© 2026 NEXUS Cyber Lab Argentina. Cotización Dólar $1500.</span>
+    <footer class="bg-nexus-card border-t border-nexus-border py-8 text-center text-xs text-nexus-darkText">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-nexus-neon/20 border border-nexus-neon/40 flex items-center justify-center text-nexus-neon text-xs font-bold">N</div>
+                <span class="font-title font-bold text-white">NEXUS.LAB Hardware</span>
             </div>
-            <div class="flex gap-4 text-base text-gray-400">
+            <p>© 2026 NEXUS Lab Argentina. Todos los derechos reservados.</p>
+            <div class="flex gap-4 text-base">
                 <a href="#" class="hover:text-nexus-neon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="hover:text-nexus-neon"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="hover:text-nexus-neon"><i class="fab fa-discord"></i></a>
+                <a href="#" class="hover:text-nexus-neon"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
 
 
-    <!-- MODAL / VISTA DETALLADA DEL PRODUCTO -->
-    <div id="product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
-        <div class="glass-card bg-nexus-card max-w-2xl w-full rounded-3xl overflow-hidden border border-nexus-neon/40 relative shadow-2xl" id="modal-container">
-            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 text-white hover:text-nexus-neon flex items-center justify-center transition">
-                <i class="fas fa-xmark"></i>
+    <!-- MODAL DE DETALLE DE PRODUCTO -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative border border-nexus-neon/40 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-gray-400 hover:text-nexus-neon text-xl w-8 h-8 rounded-full bg-nexus-bg flex items-center justify-center">
+                <i class="fas fa-times"></i>
             </button>
-
-            <div class="grid md:grid-cols-12 gap-0">
-                <div class="md:col-span-6 relative h-60 md:h-full bg-black/40">
-                    <img id="modal-img" src="" class="w-full h-full object-cover">
-                </div>
-                <div class="md:col-span-6 p-6 flex flex-col justify-between space-y-4">
-                    <div>
-                        <span id="modal-category" class="bg-nexus-neon/20 text-nexus-neon text-[10px] font-title font-bold px-2.5 py-1 rounded-full uppercase">Categoría</span>
-                        <h3 id="modal-title" class="text-xl font-title font-bold text-white mt-2">Título</h3>
-                        <p id="modal-desc" class="text-xs text-nexus-darkText mt-2 leading-relaxed">Descripción</p>
-                        
-                        <div class="mt-4 pt-3 border-t border-nexus-border space-y-1">
-                            <span class="text-[9px] uppercase text-nexus-neon font-title font-bold block">Precio Especial (Efectivo / Transf):</span>
-                            <p id="modal-price-cash" class="text-2xl font-title font-bold text-nexus-neon">$0 ARS</p>
-                            <span class="text-[9px] uppercase text-nexus-priceList font-title font-bold block mt-1">Precio de Lista (Tarjetas / Cuotas):</span>
-                            <p id="modal-price-list" class="text-sm font-title font-semibold text-gray-300">$0 ARS</p>
-                        </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-nexus-border flex gap-2">
-                        <button id="modal-add-cart-btn" onclick="" class="w-full btn-neon font-title font-bold py-2.5 rounded-xl text-xs uppercase flex items-center justify-center gap-2">
-                            <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                        </button>
-                    </div>
-                </div>
+            <div id="modal-content" class="grid sm:grid-cols-2 gap-6 items-center">
+                <!-- Se llena vía JS -->
             </div>
         </div>
     </div>
 
 
-    <!-- PANEL LATERAL / DRAWER DEL CARRITO -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 hidden transition-all duration-300">
-        <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
-
-        <div class="absolute top-0 right-0 h-full w-full max-w-md bg-nexus-card border-l border-nexus-border shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+    <!-- DRAWER / CARRITO DE COMPRAS DESPLEGABLE -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden justify-end">
+        <div class="bg-nexus-card border-l border-nexus-border w-full max-w-md h-full flex flex-col justify-between p-6 shadow-2xl">
             <div>
                 <div class="flex items-center justify-between pb-4 border-b border-nexus-border">
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-cart-shopping text-nexus-neon text-lg"></i>
-                        <h3 class="font-title font-bold text-lg text-white">Carrito de Compras</h3>
-                    </div>
+                    <h3 class="font-title font-bold text-lg text-white flex items-center gap-2">
+                        <i class="fas fa-cart-shopping text-nexus-neon"></i> Carrito de Compras
+                    </h3>
                     <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white text-lg">
                         <i class="fas fa-xmark"></i>
                     </button>
                 </div>
 
-                <div id="cart-items-container" class="py-4 space-y-3 max-h-[55vh] overflow-y-auto pr-1">
-                    <!-- Dinámico -->
+                <div id="cart-items-container" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+                    <!-- Ítems agregados -->
                 </div>
             </div>
 
             <div class="pt-4 border-t border-nexus-border space-y-4">
                 <div class="space-y-1 text-xs">
-                    <div class="flex justify-between items-center text-gray-300">
-                        <span>Total Especial (Efectivo/Transf):</span>
-                        <span id="cart-total-cash" class="text-xl font-title font-bold text-nexus-neon">$0 ARS</span>
+                    <div class="flex justify-between text-gray-300">
+                        <span>Total Efectivo / Transferencia:</span>
+                        <span id="cart-total-cash" class="font-title font-bold text-nexus-neon text-lg">$0 ARS</span>
                     </div>
-                    <div class="flex justify-between items-center text-gray-400">
-                        <span>Total Lista (Tarjetas/Cuotas):</span>
-                        <span id="cart-total-list" class="text-xs font-title font-bold text-nexus-priceList">$0 ARS</span>
+                    <div class="flex justify-between text-nexus-darkText">
+                        <span>Total Precio Lista:</span>
+                        <span id="cart-total-list" class="font-title font-bold text-nexus-priceList text-sm">$0 ARS</span>
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <button onclick="checkoutWhatsApp()" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-base"></i> Finalizar Pedido por WhatsApp
-                    </button>
-                    <button onclick="clearCart()" class="w-full text-center text-gray-500 hover:text-red-400 text-[11px] font-title uppercase py-1">
-                        Vaciar Carrito
-                    </button>
-                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full btn-neon font-title font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-sm"></i> Finalizar Pedido por WhatsApp
+                </button>
             </div>
         </div>
     </div>
 
 
-    <!-- AOS JS -->
+    <!-- AOS & SCRIPT DE LÓGICA E-COMMERCE -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-    <!-- SCRIPT E-COMMERCE -->
     <script>
-        AOS.init({ duration: 600, once: true });
+        AOS.init({ duration: 700, once: true });
 
-        // BASE DE DATOS DE PRODUCTOS REALISTA SEPTIEMBRE 2026 (DÓLAR $1500 ARS)
-        const productsDatabase = [
-            // Rigs / PCs Armadas
+        // Base de Datos de Productos E-Commerce con Imágenes Reales de Hardware High-End
+        const products = [
             {
                 id: 'p1',
-                title: 'NEXUS Titan RTX 4090 Monster Rig',
+                name: 'NEXUS Titan RTX 4090 Monster',
                 category: 'rigs',
-                img: 'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?auto=format&fit=crop&w=600&q=80',
-                desc: 'Intel i9 14900K, 64GB DDR5 6000MHz, RTX 4090 24GB, SSD 2TB Gen4, Watercooling Custom Loop 360mm.',
                 priceCash: 5850000,
                 priceList: 6880000,
-                stock: true
+                image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80',
+                badge: 'Flagship Rig',
+                specs: 'i9 14900K | RTX 4090 24GB | 64GB DDR5 | 2TB Gen4 NVMe',
+                description: 'Equipo de gama entusiasta montado con refrigeración líquida custom de 360mm, gabinete de cristal templado y cables enmallados.'
             },
             {
                 id: 'p2',
-                title: 'NEXUS Spectre RTX 4080 Super Custom',
-                category: 'rigs',
-                img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80',
-                desc: 'Intel i7 14700K, 32GB DDR5 Corsair, RTX 4080 Super 16GB, SSD 1TB Gen4, Fuente 850W Gold.',
-                priceCash: 3850000,
-                priceList: 4500000,
-                stock: true
+                name: 'ASUS ROG Strix GeForce RTX 4090 24GB',
+                category: 'gpu',
+                priceCash: 3400000,
+                priceList: 4000000,
+                image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80',
+                badge: 'Top Performance',
+                specs: '24GB GDDR6X | PCIe 4.0 | DLSS 3.5 | ARGB Aura Sync',
+                description: 'La placa de video más potente para gaming 4K ultra e inteligencia artificial con disipador de cámara de vapor.'
             },
             {
                 id: 'p3',
-                title: 'PC Gamer NEXUS Streamer RTX 4070 Super',
-                category: 'rigs',
-                img: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80',
-                desc: 'AMD Ryzen 7 7800X3D, 32GB DDR5 6000MHz, RTX 4070 Super 12GB, Gabinete Vidrio Templado ARGB.',
-                priceCash: 2750000,
-                priceList: 3230000,
-                stock: true
+                name: 'Intel Core i7 14700K 20-Cores',
+                category: 'cpu',
+                priceCash: 680000,
+                priceList: 800000,
+                image: 'https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=800&q=80',
+                badge: 'Best Seller',
+                specs: '20 Núcleos (8P+12E) | Hasta 5.6 GHz | LGA 1700',
+                description: 'Procesador unlocked ideal para renderizado, streaming exigente y juegos a máxima velocidad de cuadros.'
             },
             {
                 id: 'p4',
-                title: 'PC Gamer NEXUS Entry Level RTX 4060',
-                category: 'rigs',
-                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=600&q=80',
-                desc: 'Intel Core i5 13400F, 16GB DDR4, RTX 4060 8GB OC, SSD 1TB, Fuente 650W 80 Plus Bronze.',
-                priceCash: 1390000,
-                priceList: 1630000,
-                stock: true
+                name: 'AMD Ryzen 7 7800X3D AM5 Gamer',
+                category: 'cpu',
+                priceCash: 780000,
+                priceList: 918000,
+                image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80',
+                badge: 'Rey del Gaming',
+                specs: '8 Núcleos 16 Hilos | 3D V-Cache 96MB | Socket AM5',
+                description: 'El procesador con el mayor rendimiento absoluto en FPS para esports y títulos AAA gracias a la tecnología 3D V-Cache.'
             },
-
-            // Placas de Video (GPUs)
             {
                 id: 'p5',
-                title: 'Nvidia GeForce RTX 4090 24GB ASUS ROG Strix',
-                category: 'gpu',
-                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=600&q=80',
-                desc: 'La GPU más potente del mundo. DLSS 3, Ray Tracing completo y disipador de cámara de vapor.',
-                priceCash: 3400000,
-                priceList: 4000000,
-                stock: true
+                name: 'ASUS ROG Strix Z790-F Gaming WiFi',
+                category: 'mother',
+                priceCash: 520000,
+                priceList: 610000,
+                image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+                badge: 'High-End Mother',
+                specs: 'Intel Z790 | DDR5 7800MHz+ | WiFi 6E | PCIe 5.0',
+                description: 'Placa madre premium con fases de alimentación de 16+1 etapas para overclocking extremo y disipadores masivos M.2.'
             },
             {
                 id: 'p6',
-                title: 'Nvidia GeForce RTX 4080 Super 16GB MSI Gaming X',
-                category: 'gpu',
-                img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
-                desc: 'Rendimiento 4K Ultra a altas tasas de FPS con arquitectura Ada Lovelace y Tri Frozr 3.',
-                priceCash: 1950000,
-                priceList: 2290000,
-                stock: true
+                name: 'Corsair Vengeance 32GB (2x16GB) DDR5 6000MHz',
+                category: 'ram',
+                priceCash: 200000,
+                priceList: 235000,
+                image: 'https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=800&q=80',
+                badge: 'Ultrafast RAM',
+                specs: '32GB Kit (2x16GB) | 6000MHz CL36 | XMP 3.0',
+                description: 'Memorias de alta velocidad optimizadas para plataformas Intel y AMD AM5 con perfil de aluminio disipador.'
             },
             {
                 id: 'p7',
-                title: 'Nvidia GeForce RTX 4070 Super 12GB Gigabyte Windforce',
-                category: 'gpu',
-                img: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80',
-                desc: 'El dulce punto ideal para gaming 2K Ultra 144Hz. Excelente eficiencia y consumo térmico.',
-                priceCash: 1050000,
-                priceList: 1235000,
-                stock: true
+                name: 'SSD M.2 NVMe Kingston Fury Renegade 2TB',
+                category: 'ram',
+                priceCash: 265000,
+                priceList: 310000,
+                image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80',
+                badge: '7300 MB/s',
+                specs: '2TB PCIe 4.0 NVMe | Lectura: 7300MB/s | Escritura: 7000MB/s',
+                description: 'Almacenamiento ultra rápido para eliminar los tiempos de carga en juegos de mundo abierto y edición de video 4K.'
             },
             {
                 id: 'p8',
-                title: 'Nvidia GeForce RTX 4060 8GB Zotac Gaming Twin Edge',
-                category: 'gpu',
-                img: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=600&q=80',
-                desc: 'Rendimiento fluido en 1080p Ultra con DLSS 3 e iluminación compacta.',
-                priceCash: 520000,
-                priceList: 610000,
-                stock: true
-            },
-
-            // Procesadores (CPUs)
-            {
-                id: 'p9',
-                title: 'Procesador Intel Core i9 14900K 24-Cores 6.0GHz',
-                category: 'cpu',
-                img: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80',
-                desc: '24 núcleos (8P + 16E) y 32 hilos. Frecuencia boost de 6.0 GHz para render y gaming extremo.',
-                priceCash: 980000,
-                priceList: 1150000,
-                stock: true
-            },
-            {
-                id: 'p10',
-                title: 'Procesador AMD Ryzen 7 7800X3D 8-Core AM5',
-                category: 'cpu',
-                img: 'https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80',
-                desc: 'El rey indiscutido del gaming gracias a la tecnología 3D V-Cache de AMD.',
-                priceCash: 780000,
-                priceList: 918000,
-                stock: true
-            },
-            {
-                id: 'p11',
-                title: 'Procesador Intel Core i7 14700K 20-Cores',
-                category: 'cpu',
-                img: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80',
-                desc: '20 núcleos y 28 hilos. Máxima potencia multitarea y FPS en juegos exigentes.',
-                priceCash: 680000,
-                priceList: 800000,
-                stock: true
-            },
-            {
-                id: 'p12',
-                title: 'Procesador AMD Ryzen 5 7600X AM5 5.3GHz',
-                category: 'cpu',
-                img: 'https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80',
-                desc: '6 núcleos y 12 hilos arquitectura Zen 4 con soporte PCIe 5.0 y DDR5.',
-                priceCash: 370000,
-                priceList: 435000,
-                stock: true
-            },
-
-            // Motherboards
-            {
-                id: 'p13',
-                title: 'Motherboard ASUS ROG Strix Z790-F Gaming Wi-Fi',
-                category: 'mother',
-                img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
-                desc: 'Fases de poder 16+1, PCIe 5.0, soporte DDR5 7800+ y Wi-Fi 6E de fábrica.',
-                priceCash: 520000,
-                priceList: 610000,
-                stock: true
-            },
-            {
-                id: 'p14',
-                title: 'Motherboard MSI B650 Gaming Plus WiFi AM5',
-                category: 'mother',
-                img: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80',
-                desc: 'Plataforma robusta AM5 para procesadores Ryzen 7000/8000 con DDR5 y M.2 Shield.',
-                priceCash: 310000,
-                priceList: 365000,
-                stock: true
-            },
-            {
-                id: 'p15',
-                title: 'Motherboard ASUS Prime B760M-A Wi-Fi DDR5',
-                category: 'mother',
-                img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
-                desc: 'Formato Micro-ATX ideal para armados Intel 12va, 13ra y 14ta Gen con memorias DDR5.',
-                priceCash: 250000,
-                priceList: 294000,
-                stock: true
-            },
-
-            // RAM y SSD
-            {
-                id: 'p16',
-                title: 'Memoria RAM Kingston Fury Renegade 32GB (2x16) DDR5 6000MHz RGB',
-                category: 'ram',
-                img: 'https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80',
-                desc: 'Disipador térmico de aluminio con perfil XMP 3.0 / EXPO e iluminación RGB personalizable.',
-                priceCash: 200000,
-                priceList: 235000,
-                stock: true
-            },
-            {
-                id: 'p17',
-                title: 'Disco SSD M.2 NVMe 2TB Kingston Fury Renegade 7300MB/s',
-                category: 'ram',
-                img: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
-                desc: 'Velocidad de lectura de hasta 7.300 MB/s. Ideal para PS5 y PCs de carga instantánea.',
-                priceCash: 265000,
-                priceList: 310000,
-                stock: true
-            },
-            {
-                id: 'p18',
-                title: 'Disco SSD M.2 NVMe 1TB Kingston NV2 PCIe 4.0',
-                category: 'ram',
-                img: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
-                desc: 'Lecturas de 3.500 MB/s en formato compacto M.2 Gen4 para almacenamiento rápido.',
-                priceCash: 135000,
-                priceList: 158000,
-                stock: true
-            },
-
-            // Fuentes y Gabinetes
-            {
-                id: 'p19',
-                title: 'Fuente Gigabyte 850W 80 Plus Gold Modular PCIe 5.0 ATX 3.0',
+                name: 'Fuente Corsair RM850x 850W 80+ Gold Modular',
                 category: 'power',
-                img: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80',
-                desc: 'Cable nativo 12VHPWR preparado para placas Nvidia RTX Serie 40 con eficiencia Gold.',
                 priceCash: 230000,
                 priceList: 270000,
-                stock: true
+                image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80',
+                badge: '80+ Gold',
+                specs: '850W Full Modular | Capacitores Japoneses 105°C | Zero RPM Fan',
+                description: 'Fuente de poder de eficiencia Gold ultra silenciosa con cables planos enmallados para placas de última generación.'
             },
             {
-                id: 'p20',
-                title: 'Gabinete Gamer Corsair 4000D Airflow ARGB Vidrio Templado',
-                category: 'power',
-                img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80',
-                desc: 'Panel frontal Mesh de alto flujo de aire con 3 fanes ARGB e interior optimizado.',
-                priceCash: 195000,
-                priceList: 229000,
-                stock: true
-            },
-
-            // Monitores y Periféricos
-            {
-                id: 'p21',
-                title: 'Monitor Gamer 27" ASUS ROG Strix 2K QHD 180Hz IPS 1ms',
+                id: 'p9',
+                name: 'Monitor Gamer ASUS ROG Swift 27" 240Hz 0.5ms',
                 category: 'peripherals',
-                img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80',
-                desc: 'Resolución 2560x1440, panel Fast IPS, G-Sync Compatible y HDR400.',
-                priceCash: 520000,
-                priceList: 610000,
-                stock: true
-            },
-            {
-                id: 'p22',
-                title: 'Monitor Gamer 24" Zowie XL2411K 144Hz 1ms DyAc esports',
-                category: 'peripherals',
-                img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80',
-                desc: 'Diseñado para competidores de CS2, Valorant y Fortnite con tecnología DyAc.',
-                priceCash: 360000,
-                priceList: 423000,
-                stock: true
-            },
-            {
-                id: 'p23',
-                title: 'Teclado Mecánico RGB Hot-Swap Switches Red',
-                category: 'peripherals',
-                img: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80',
-                desc: 'Estructura con insonorización por espuma, interruptores intercambiables en caliente y cable Tipo-C.',
-                priceCash: 130000,
-                priceList: 153000,
-                stock: true
-            },
-            {
-                id: 'p24',
-                title: 'Mouse Gamer Inalámbrico Sensor HERO 26K 63g Lightweight',
-                category: 'peripherals',
-                img: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80',
-                desc: 'Pesos ultra liviano de 63 gramos, switches óptico-mecánicos y respuesta de 1ms.',
-                priceCash: 145000,
-                priceList: 170000,
-                stock: true
+                priceCash: 720000,
+                priceList: 845000,
+                image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
+                badge: '240Hz eSports',
+                specs: '27 Pulgadas Fast IPS | 2560x1440 QHD | G-Sync Compatible',
+                description: 'Monitor con tasa de refresco ultra alta para una fluidez competitiva sin tearing ni Ghosting.'
             }
         ];
 
-        // ESTADO DEL CARRITO Y NAVEGACIÓN
         let cart = [];
-        let currentProductsList = [...productsDatabase];
+        let currentFilter = 'all';
 
-        // RENDERIZAR PRODUCTOS EN LA GRILLA
-        function renderProducts(products) {
+        // Renderizado Inicial del Catálogo
+        function renderProducts(items) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = '';
 
-            if (products.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center text-nexus-darkText text-sm py-16">No encontramos productos coincidentes con tu búsqueda.</div>`;
-                return;
-            }
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl p-4 flex flex-col justify-between transition group';
+                card.innerHTML = `
+                    <div>
+                        <div class="relative rounded-xl overflow-hidden mb-3 h-48 bg-black/50 cursor-pointer" onclick="openProductModal('${product.id}')">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-2 left-2 bg-nexus-neon text-black font-title font-bold text-[9px] uppercase px-2.5 py-0.5 rounded-full shadow">${product.badge}</span>
+                        </div>
+                        <p class="text-[10px] text-nexus-cyan font-title font-bold uppercase tracking-wider">${product.category}</p>
+                        <h3 class="text-sm font-title font-bold text-white group-hover:text-nexus-neon transition cursor-pointer" onclick="openProductModal('${product.id}')">${product.name}</h3>
+                        <p class="text-[11px] text-nexus-darkText mt-1 line-clamp-2">${product.specs}</p>
+                    </div>
 
-            products.forEach(p => {
-                const formattedCash = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceCash);
-                const formattedList = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceList);
-
-                grid.innerHTML += `
-                    <div class="glass-card rounded-2xl overflow-hidden border border-nexus-border flex flex-col justify-between group transition duration-300">
-                        <div>
-                            <div onclick="openProductModal('${p.id}')" class="relative h-48 overflow-hidden cursor-pointer bg-black/40">
-                                <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <span class="absolute top-3 left-3 bg-nexus-neon text-black text-[9px] font-title font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shadow">En Stock</span>
+                    <div class="mt-4 pt-3 border-t border-nexus-border">
+                        <div class="flex items-baseline justify-between mb-3">
+                            <div>
+                                <span class="text-[9px] text-nexus-neon font-title font-bold uppercase block">Efectivo / Transf.</span>
+                                <span class="text-base font-title font-bold text-nexus-neon">$${product.priceCash.toLocaleString('es-AR')}</span>
                             </div>
-                            
-                            <div class="p-4">
-                                <h3 onclick="openProductModal('${p.id}')" class="text-sm font-title font-bold text-white group-hover:text-nexus-neon transition cursor-pointer line-clamp-2">${p.title}</h3>
-                                <p class="text-[11px] text-nexus-darkText mt-1.5 line-clamp-2">${p.desc}</p>
+                            <div class="text-right">
+                                <span class="text-[9px] text-nexus-priceList font-title font-bold uppercase block">Lista</span>
+                                <span class="text-xs font-title font-semibold text-gray-300">$${product.priceList.toLocaleString('es-AR')}</span>
                             </div>
                         </div>
-
-                        <div class="p-4 pt-0 space-y-3">
-                            <div class="border-t border-nexus-border/60 pt-2.5 space-y-0.5">
-                                <div>
-                                    <span class="text-[9px] uppercase text-nexus-neon font-title font-bold block">PRECIO ESPECIAL (Contado)</span>
-                                    <span class="text-lg font-title font-bold text-nexus-neon">${formattedCash}</span>
-                                </div>
-                                <div>
-                                    <span class="text-[9px] uppercase text-nexus-priceList font-title font-bold block">PRECIO DE LISTA</span>
-                                    <span class="text-xs font-title font-semibold text-gray-400">${formattedList}</span>
-                                </div>
-                            </div>
-
-                            <button onclick="addToCart('${p.id}')" class="w-full btn-neon font-title font-bold py-2.5 rounded-xl text-xs uppercase flex items-center justify-center gap-2">
-                                <i class="fas fa-cart-plus text-xs"></i> Agregar al Carrito
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openProductModal('${product.id}')" class="w-full glass-card hover:bg-nexus-neon/20 text-white text-[11px] font-title font-bold py-2 rounded-xl transition">
+                                Ver Detalle
+                            </button>
+                            <button onclick="addToCart('${product.id}')" class="w-full btn-neon text-[11px] font-title font-bold py-2 rounded-xl transition flex items-center justify-center gap-1">
+                                <i class="fas fa-cart-plus"></i> Agregar
                             </button>
                         </div>
                     </div>
                 `;
+                grid.appendChild(card);
             });
         }
 
-        // ORDENAR PRODUCTOS
-        function sortProducts() {
-            const val = document.getElementById('sort-select').value;
-            if (val === 'price-asc') {
-                currentProductsList.sort((a, b) => a.priceCash - b.priceCash);
-            } else if (val === 'price-desc') {
-                currentProductsList.sort((a, b) => b.priceCash - a.priceCash);
-            } else {
-                currentProductsList = [...productsDatabase];
-            }
-            renderProducts(currentProductsList);
-        }
-
-        // FILTRADO DE CATEGORÍAS
+        // Filtrado por Categorías
         function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(b => {
-                if(b.getAttribute('data-cat') === cat) {
-                    b.classList.add('bg-nexus-neon', 'text-black');
-                    b.classList.remove('text-gray-400');
+            currentFilter = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = 'cat-btn active px-4 py-2 rounded-xl bg-nexus-neon text-black transition';
                 } else {
-                    b.classList.remove('bg-nexus-neon', 'text-black');
-                    b.classList.add('text-gray-400');
+                    btn.className = 'cat-btn px-4 py-2 rounded-xl text-gray-400 hover:text-white transition';
                 }
             });
 
-            if (cat === 'all') {
-                currentProductsList = [...productsDatabase];
-            } else {
-                currentProductsList = productsDatabase.filter(p => p.category === cat);
-            }
-            sortProducts();
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            renderProducts(filtered);
         }
 
-        // BUSCADOR EN TIEMPO REAL
+        // Buscador
         function searchProducts() {
             const query = document.getElementById('store-search-input').value.toLowerCase();
-            currentProductsList = productsDatabase.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
-            renderProducts(currentProductsList);
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.specs.toLowerCase().includes(query));
+            renderProducts(filtered);
         }
 
         function searchProductsMobile() {
             const query = document.getElementById('store-search-input-mobile').value.toLowerCase();
-            currentProductsList = productsDatabase.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
-            renderProducts(currentProductsList);
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.specs.toLowerCase().includes(query));
+            renderProducts(filtered);
         }
 
-        // CARRITO DE COMPRAS
-        function addToCart(productId) {
-            const product = productsDatabase.find(p => p.id === productId);
+        // Ordenamiento
+        function sortProducts() {
+            const type = document.getElementById('sort-select').value;
+            let sorted = [...products];
+            if (type === 'price-asc') sorted.sort((a,b) => a.priceCash - b.priceCash);
+            if (type === 'price-desc') sorted.sort((a,b) => b.priceCash - a.priceCash);
+            renderProducts(sorted);
+        }
+
+        // Lógica de Modal de Detalle
+        function openProductModal(id) {
+            const product = products.find(p => p.id === id);
             if (!product) return;
 
-            const existing = cart.find(item => item.id === productId);
-            if (existing) {
-                existing.qty++;
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <div class="rounded-2xl overflow-hidden bg-black/60 h-64">
+                    <img src="${product.image}" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-3">
+                    <span class="bg-nexus-neon/20 border border-nexus-neon/40 text-nexus-neon text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">${product.badge}</span>
+                    <h3 class="text-xl font-title font-bold text-white">${product.name}</h3>
+                    <p class="text-xs text-nexus-darkText">${product.description}</p>
+                    <div class="p-3 bg-nexus-bg rounded-xl border border-nexus-border text-xs space-y-1">
+                        <p class="text-white font-bold">Especificaciones:</p>
+                        <p class="text-nexus-darkText">${product.specs}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2">
+                        <div>
+                            <span class="text-[9px] text-nexus-neon uppercase font-bold block">Contado</span>
+                            <span class="text-xl font-title font-bold text-nexus-neon">$${product.priceCash.toLocaleString('es-AR')} ARS</span>
+                        </div>
+                        <button onclick="addToCart('${product.id}'); closeProductModal();" class="btn-neon font-title font-bold px-4 py-2.5 rounded-xl text-xs uppercase">
+                            <i class="fas fa-cart-plus mr-1"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.getElementById('product-modal').classList.add('flex');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            document.getElementById('product-modal').classList.remove('flex');
+        }
+
+        // Lógica de Carrito de Compras
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const exist = cart.find(item => item.id === id);
+
+            if (exist) {
+                exist.qty += 1;
             } else {
                 cart.push({ ...product, qty: 1 });
             }
@@ -943,213 +778,171 @@
             toggleCartDrawer(true);
         }
 
-        function updateCartQty(productId, change) {
-            const item = cart.find(i => i.id === productId);
-            if (!item) return;
-
-            item.qty += change;
-            if (item.qty <= 0) {
-                cart = cart.filter(i => i.id !== productId);
-            }
-
-            updateCartUI();
-        }
-
-        function clearCart() {
-            cart = [];
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
             updateCartUI();
         }
 
         function updateCartUI() {
-            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-badge-count').innerText = totalCount;
-
             const container = document.getElementById('cart-items-container');
             container.innerHTML = '';
 
-            if (cart.length === 0) {
-                container.innerHTML = `<p class="text-center text-xs text-nexus-darkText py-10">Tu carrito de compras está vacío.</p>`;
-                document.getElementById('cart-total-cash').innerText = '$0 ARS';
-                document.getElementById('cart-total-list').innerText = '$0 ARS';
-                return;
-            }
-
             let totalCash = 0;
             let totalList = 0;
+            let totalCount = 0;
 
-            cart.forEach(item => {
-                const itemCash = item.priceCash * item.qty;
-                const itemList = item.priceList * item.qty;
-                totalCash += itemCash;
-                totalList += itemList;
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-xs text-nexus-darkText py-8">Tu carrito está vacío.</p>`;
+            } else {
+                cart.forEach(item => {
+                    totalCash += item.priceCash * item.qty;
+                    totalList += item.priceList * item.qty;
+                    totalCount += item.qty;
 
-                const formattedCash = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(itemCash);
-
-                container.innerHTML += `
-                    <div class="glass-card p-3 rounded-xl flex items-center justify-between gap-3 border border-nexus-border">
-                        <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="text-xs font-title font-bold text-white truncate">${item.title}</h4>
-                            <span class="text-xs text-nexus-neon font-bold">${formattedCash}</span>
+                    const div = document.createElement('div');
+                    div.className = 'glass-card p-3 rounded-xl flex items-center gap-3 justify-between';
+                    div.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="text-xs font-title font-bold text-white line-clamp-1">${item.name}</h4>
+                                <span class="text-xs text-nexus-neon font-bold">$${(item.priceCash * item.qty).toLocaleString('es-AR')}</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2 bg-nexus-bg border border-nexus-border px-2 py-1 rounded-lg">
-                            <button onclick="updateCartQty('${item.id}', -1)" class="text-gray-400 hover:text-white text-xs font-bold">-</button>
-                            <span class="text-xs font-title font-bold text-white px-1">${item.qty}</span>
-                            <button onclick="updateCartQty('${item.id}', 1)" class="text-gray-400 hover:text-white text-xs font-bold">+</button>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold bg-nexus-bg px-2 py-1 rounded-md text-white">x${item.qty}</span>
+                            <button onclick="removeFromCart('${item.id}')" class="text-red-400 hover:text-red-300 text-xs p-1">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </div>
-                    </div>
-                `;
-            });
+                    `;
+                    container.appendChild(div);
+                });
+            }
 
-            document.getElementById('cart-total-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
-            document.getElementById('cart-total-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalList);
+            document.getElementById('cart-badge-count').innerText = totalCount;
+            document.getElementById('cart-total-cash').innerText = `$${totalCash.toLocaleString('es-AR')} ARS`;
+            document.getElementById('cart-total-list').innerText = `$${totalList.toLocaleString('es-AR')} ARS`;
         }
 
-        function toggleCartDrawer(openOnly = false) {
+        function toggleCartDrawer(open) {
             const drawer = document.getElementById('cart-drawer');
-            if (openOnly) {
+            if (open === true) {
                 drawer.classList.remove('hidden');
+                drawer.classList.add('flex');
             } else {
                 drawer.classList.toggle('hidden');
+                drawer.classList.toggle('flex');
             }
         }
 
-        function checkoutWhatsApp() {
-            if (cart.length === 0) {
-                alert('Agregá productos al carrito antes de finalizar.');
-                return;
-            }
-
-            let message = "Hola NEXUS Lab! Quiero consultar/comprar el siguiente pedido:\n\n";
-            let totalCash = 0;
-
-            cart.forEach(item => {
-                const subtotal = item.priceCash * item.qty;
-                totalCash += subtotal;
-                const formattedSub = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(subtotal);
-                message += `▪ ${item.qty}x ${item.title} - ${formattedSub}\n`;
-            });
-
-            const formattedTotal = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
-            message += `\n TOTAL ESPECIAL (Efectivo/Transf): ${formattedTotal}`;
-            message += `\n Quedo a la espera para coordinar el pago y envío/retiro.`;
-
-            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        // CONFIGURADOR "ARMÁ TU PC"
+        // Lógica del Cotizador "Armá tu PC"
         function updateBuilderTotal() {
-            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
-            let totalCash = 0;
-            let totalList = 0;
+            const selectIds = ['builder-cpu', 'builder-mother', 'builder-ram', 'builder-gpu', 'builder-ssd', 'builder-psu'];
+            let cashTotal = 0;
+            let listTotal = 0;
 
-            selects.forEach(id => {
-                const select = document.getElementById(`builder-${id}`);
-                const opt = select.options[select.selectedIndex];
-                totalCash += parseFloat(opt.value || 0);
-                totalList += parseFloat(opt.getAttribute('data-price-list') || 0);
+            selectIds.forEach(id => {
+                const select = document.getElementById(id);
+                const option = select.options[select.selectedIndex];
+                const cashVal = parseInt(option.value) || 0;
+                const listVal = parseInt(option.getAttribute('data-price-list')) || 0;
+
+                cashTotal += cashVal;
+                listTotal += listVal;
             });
 
-            document.getElementById('builder-total-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalCash);
-            document.getElementById('builder-total-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(totalList);
+            document.getElementById('builder-total-cash').innerText = `$${cashTotal.toLocaleString('es-AR')} ARS`;
+            document.getElementById('builder-total-list').innerText = `$${listTotal.toLocaleString('es-AR')} ARS`;
         }
 
         function addBuilderBuildToCart() {
-            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
-            let addedCount = 0;
+            const selectIds = ['builder-cpu', 'builder-mother', 'builder-ram', 'builder-gpu', 'builder-ssd', 'builder-psu'];
+            let buildComponents = [];
+            let cashTotal = 0;
+            let listTotal = 0;
 
-            selects.forEach(id => {
-                const select = document.getElementById(`builder-${id}`);
-                const opt = select.options[select.selectedIndex];
-                const priceCash = parseFloat(opt.value || 0);
-                const priceList = parseFloat(opt.getAttribute('data-price-list') || 0);
-                const name = opt.getAttribute('data-name');
-
-                if (priceCash > 0 && name) {
-                    const tempId = 'custom-' + id + '-' + Date.now();
-                    cart.push({
-                        id: tempId,
-                        title: name,
-                        img: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=200&q=80',
-                        priceCash: priceCash,
-                        priceList: priceList,
-                        qty: 1
-                    });
-                    addedCount++;
+            selectIds.forEach(id => {
+                const select = document.getElementById(id);
+                const option = select.options[select.selectedIndex];
+                if (parseInt(option.value) > 0) {
+                    buildComponents.push(option.getAttribute('data-name'));
+                    cashTotal += parseInt(option.value);
+                    listTotal += parseInt(option.getAttribute('data-price-list'));
                 }
             });
 
-            if (addedCount === 0) {
-                alert('Por favor seleccioná componentes antes de agregar al carrito.');
+            if (buildComponents.length === 0) {
+                alert('Por favor selecciona al menos un componente para añadir el armado.');
                 return;
             }
 
+            const customBuild = {
+                id: 'custom-' + Date.now(),
+                name: 'PC Personalizada NEXUS Lab',
+                category: 'rigs',
+                priceCash: cashTotal,
+                priceList: listTotal,
+                image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80',
+                specs: buildComponents.join(' | '),
+                qty: 1
+            };
+
+            cart.push(customBuild);
             updateCartUI();
             toggleCartDrawer(true);
         }
 
         function sendBuilderToWhatsApp() {
-            const selects = ['cpu', 'mother', 'ram', 'gpu', 'ssd', 'psu'];
-            let message = "Hola NEXUS Lab! Quiero consultar por la siguiente cotización de PC a medida:\n\n";
-            let total = 0;
+            const selectIds = ['builder-cpu', 'builder-mother', 'builder-ram', 'builder-gpu', 'builder-ssd', 'builder-psu'];
+            let buildComponents = [];
+            let cashTotal = 0;
 
-            selects.forEach(id => {
-                const select = document.getElementById(`builder-${id}`);
-                const opt = select.options[select.selectedIndex];
-                const price = parseFloat(opt.value || 0);
-                const name = opt.getAttribute('data-name');
-
-                if (price > 0 && name) {
-                    total += price;
-                    message += `▪ ${name}\n`;
+            selectIds.forEach(id => {
+                const select = document.getElementById(id);
+                const option = select.options[select.selectedIndex];
+                if (parseInt(option.value) > 0) {
+                    buildComponents.push('- ' + option.getAttribute('data-name'));
+                    cashTotal += parseInt(option.value);
                 }
             });
 
-            if (total === 0) {
-                alert('Seleccioná los componentes antes de consultar.');
+            if (buildComponents.length === 0) {
+                alert('Selecciona al menos un componente para consultar por WhatsApp.');
                 return;
             }
 
-            const formattedTotal = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(total);
-            message += `\n TOTAL ESTIMADO (Efectivo/Transf): ${formattedTotal}`;
+            const text = `Hola NEXUS Lab! Quisiera consultar por este presupuesto de PC Armada:\n\n` + 
+                         buildComponents.join('\n') + 
+                         `\n\nTotal Efectivo/Transferencia: $${cashTotal.toLocaleString('es-AR')} ARS`;
 
-            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        // MODAL DE DETALLE
-        function openProductModal(productId) {
-            const p = productsDatabase.find(item => item.id === productId);
-            if (!p) return;
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return alert('Tu carrito está vacío');
+            let text = 'Hola NEXUS Lab! Quisiera realizar el pedido de los siguientes ítems:\n\n';
+            let total = 0;
 
-            document.getElementById('modal-title').innerText = p.title;
-            document.getElementById('modal-category').innerText = p.category;
-            document.getElementById('modal-img').src = p.img;
-            document.getElementById('modal-desc').innerText = p.desc;
-            document.getElementById('modal-price-cash').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceCash);
-            document.getElementById('modal-price-list').innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(p.priceList);
+            cart.forEach(item => {
+                text += `• ${item.name} (x${item.qty}) - $${(item.priceCash * item.qty).toLocaleString('es-AR')} ARS\n`;
+                total += item.priceCash * item.qty;
+            });
 
-            document.getElementById('modal-add-cart-btn').onclick = function() {
-                addToCart(p.id);
-                closeProductModal();
-            };
-
-            const modal = document.getElementById('product-modal');
-            modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
-        }
-
-        function closeProductModal() {
-            const modal = document.getElementById('product-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => modal.classList.add('hidden'), 300);
+            text += `\nTotal Estimado (Efectivo/Transferencia): $${total.toLocaleString('es-AR')} ARS`;
+            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            alert('¡Gracias por comunicarte con NEXUS Lab! Te contactaremos por WhatsApp inmediatamente.');
+            const name = document.getElementById('contact-name').value;
+            const message = document.getElementById('contact-message').value;
+            const text = `Hola NEXUS Lab! Mi nombre es ${name}. Consulta: ${message}`;
+            window.open(`https://wa.me/5493489000000?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        // RENDER INICIAL
-        renderProducts(productsDatabase);
+        // Inicializar Render
+        renderProducts(products);
     </script>
 </body>
 </html>
